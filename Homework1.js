@@ -290,7 +290,7 @@ function rewriteCode() {
         n % 10 === 1 ? j += 1 : false
     }
 }
-
+rewriteCode();
 
 
 
