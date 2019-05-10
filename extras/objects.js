@@ -93,3 +93,85 @@ let menu = {
 };
 
 console.log(multiplyNumeric(menu));
+
+
+
+
+
+
+// ------ THIS ---------
+
+// ------------ Task 1 -----------------
+// What is the result of this code?
+let user = {
+    name: "John",
+    go: function () { console.log(this.name) }
+}; // if not semicolon, error will be thrown
+
+(user.go)();
+
+
+
+
+
+
+// ------------ Task 2 -----------------
+let obj, method;
+obj = {
+    name: 'a',
+    go: function () { console.log(this); }
+};
+
+obj.go();               // (1) [object ]
+(obj.go)();             // (2) [object ]
+(method = obj.go)();    // (3) undefined - because of () being outside
+(obj.go || obj.stop)(); // (4) undefined - because of () being outside
+
+
+
+
+
+
+// ------------ Task 3 -----------------
+// Here the function makeUser returns an object. What is the result of accessing its ref? Why?
+function makeUser() {
+    return {
+        name: "John",
+        ref: this
+    };
+};
+
+let user = makeUser();
+
+alert(user.ref.name); // Error: Cannot read property 'name' of undefined
+
+
+
+
+
+
+
+
+
+// ------------ Task 4 -----------------
+// Create an object calculator with three methods:
+// read() prompts for two values and saves them as object properties.
+// sum() returns the sum of saved values.
+// mul() multiplies saved values and returns the result.
+
+let calculator = {
+    
+    read: function() {
+        this.a = +prompt('a : Please enter a value', '0');
+        this.b = +prompt('b : Please enter a value', '0');
+    },
+    sum: function() { 
+        return this.a + this.b;
+    },
+    mul: function() {
+        return this.a * this.b; 
+    }
+}
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul());
