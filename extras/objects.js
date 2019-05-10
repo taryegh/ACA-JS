@@ -175,3 +175,60 @@ let calculator = {
 calculator.read();
 console.log(calculator.sum());
 console.log(calculator.mul());
+
+
+
+
+// -------- CONSTRUCTOR ---------------
+
+// ------------ Task 1 -----------------
+// Is it possible to create functions A and B such as new A()==new B()?
+function A() {}
+function B() {}
+
+let a = new A;
+let b = new B;
+console.log(a == b); // false
+
+
+
+function Calculator() {
+    this.read = function() {
+        this.a = +prompt('a: please enter', 0)
+        this.b = +prompt('b: please enter', 0)
+    };
+    
+    this.sum = function() {
+        return this.a + this.b;
+    };
+    
+    this.mul = function() {
+        return this.a * this.b;
+    };
+}
+
+let calc = new Calculator();
+calc.read();
+
+console.log(calc.sum());
+console.log(calc.mul());
+
+
+
+
+
+
+
+
+
+
+function Accumulator(startingValue) {
+    this.value = startingValue;
+    this.read = function () {
+        this. value += +prompt('enter value');
+    }
+}
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+console.log(accumulator.value);
