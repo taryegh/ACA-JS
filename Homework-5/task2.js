@@ -3,7 +3,6 @@
 // 2. Given an array of nested arrays. Write a recursive function that flattens it. (Hint create function that concats arrays).
 
 
-
 function flatenArr(array) {
     // base case: dealing with last element
     if (array.length <= 1) {
