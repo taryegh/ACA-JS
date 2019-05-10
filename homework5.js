@@ -12,4 +12,6 @@ function removeFirstEl(array) {
     removeFirstEl(array).push(last);
     return array;
 }
-console.log(removeFirstEl([5, 6, 7]));
+console.log(removeFirstEl([6, 78, 'n', 0, 1]));
+console.log(removeFirstEl([5]));
+console.log(removeFirstEl([]));
