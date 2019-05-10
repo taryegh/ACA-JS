@@ -5,7 +5,7 @@
 
 
 function removeFirstEl(array) {
-    // base case: removing the last element
+    // base case: removing the last unnecessary element
     if (array.length <= 1) {
         array.pop();
         return array;
