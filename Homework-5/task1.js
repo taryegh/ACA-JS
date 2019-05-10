@@ -5,12 +5,13 @@
 
 
 function removeFirstEl(array) {
-    
+    // base case: removing the last element
     if (array.length <= 1) {
         array.pop();
         return array;
     }
 
+    // poping the last element, till reaching the base case, then pushing the last element back
     let last = array.pop();
     removeFirstEl(array).push(last);
     return array;
