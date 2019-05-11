@@ -1,4 +1,8 @@
+'use strict'
+
+
 // 3. Convert a long phrase to its acronym.
+
 function convertAcronym(string) {
     let acr = '';
     for (let i = 0; i < string.length; i++) {
