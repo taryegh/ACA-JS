@@ -71,7 +71,7 @@ function sumInput(arr = []) {
     let val = +prompt('enter values');
 
 
-    if (isNaN(val) || typeof val !== 'number' || val === null ) {
+    if (isNaN(val) || typeof val !== 'number') {
         return arr;
     }
 
