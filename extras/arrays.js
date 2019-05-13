@@ -79,3 +79,190 @@ function sumInput(arr = []) {
     return sumInput(arr);
 }
 console.log(sumInput());
+
+
+
+
+
+
+
+
+// Array methods
+
+
+// ------------- Task 1 -----------
+// Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
+
+function camelize(str) {
+    return str
+        .split('-')
+        .map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1))
+        .join('');
+
+}
+console.log(camelize('background-color'));
+
+
+
+
+
+
+// ------------- Task 2 -----------
+// Write a function filterRange(arr, a, b) that gets an array arr, looks for elements between a and b in it and returns an array of them. The function should not modify the array. It should return the new array.
+
+function filterRange(arr, a, b) {
+    let res = [];
+    arr.forEach(el => {
+        if (el >= a && el <= b) {
+            res.push(el);
+        }
+    });
+    return res;
+}
+console.log(filterRange([5, 3, 8, 1], 1, 4));
+
+
+
+
+// another solution with filter
+function filRange(arr, a, b) {
+    return arr.filter(item => (item >= a && item <= b));
+}
+console.log(filRange([5, 3, 8, 1], 1, 4));
+
+
+
+
+
+
+
+
+
+
+// ------------- Task 3 -----------
+// Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b. The function should only modify the array. It should not return anything.
+
+function filterRangeInPlace(arr, a, b) {
+    for (let i = 0; i < arr.length; i++) {
+        if (!(arr[i] >= a && arr[i] <= b)) {
+            arr.splice(i, 1);
+        }
+    }
+}
+let arr = [5, 3, 8, 1];
+filterRangeInPlace(arr, 1, 4);
+console.log(arr);
+
+
+
+
+
+
+
+
+// ------------- Task 4 -----------
+// Sort in the reverse order
+
+function reverse(arr) {
+    arr.sort((a, b) => b - a);
+}
+let revArr = [5, 2, 1, -10, 8];
+reverse(revArr);
+console.log(revArr);
+
+
+
+
+// reversing from one side to another
+function rev(arr) {
+    arr.reverse();
+}
+let a = [5, 2, 1, -10, 8];
+rev(a);
+console.log(a);
+
+
+
+
+
+
+
+
+// ------------- Task 5 -----------
+// We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified. Create a function copySorted(arr) that returns such a copy.
+
+function copySorted(arr) {
+    return arr.slice().sort();
+}
+
+let linkArr = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(linkArr);
+
+console.log(sorted);
+console.log(linkArr);
+
+
+
+
+
+
+
+
+
+
+// ------------- Task 6 -----------
+// You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names = users.map(item => item.name);
+console.log(names);
+
+
+
+
+
+
+
+
+
+// ------------- Task 7 -----------
+// You have an array of user objects, each one has name, surname and id. Write the code to create another array from it, of objects with id and fullName, where fullName is generated from name and surname.
+
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped = users.map(item => `id: ${item.id}, ${item.name} ${item.surname}`);
+console.log(usersMapped);
+
+
+
+
+
+
+
+
+
+// ------------- Task 8 -----------
+// Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let objArr = [pete, john, mary];
+
+
+function sortByAge(arr) {
+    let ageArr = arr.map(item => item);
+
+    return ageArr.sort((a, b) => a.age - b.age);
+}
+console.log(sortByAge(objArr));
