@@ -84,7 +84,7 @@ sayHi(); // The result is an error. The function sayHi is declared inside the if
 
 
 
-// Write function sum that works like this: sum(a)(b) = a+b.
+// 4. Write function sum that works like this: sum(a)(b) = a+b.
 
 function sum(a) {
   return function(b) {
@@ -100,7 +100,7 @@ console.log(sum(10)(2));
 
 
 
-// We have a built-in method arr.filter(f) for arrays. It filters all elements through the function f. If it returns true, then that element is returned in the resulting array.
+// 5. We have a built-in method arr.filter(f) for arrays. It filters all elements through the function f. If it returns true, then that element is returned in the resulting array.
 
 // Make a set of “ready to use” filters:
 
