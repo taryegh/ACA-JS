@@ -1,3 +1,6 @@
+'use strict'
+
+
 // 2. Given two numbers. Print 1 if one of them is divisible by the other one, otherwise print 0.
 
 function checkIsDevisable(a, b) {
