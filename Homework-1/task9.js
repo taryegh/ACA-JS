@@ -2,6 +2,7 @@
 
 
 // 9. Given the following code rewrite it using only two ​if ​operators. (​Hint: ​use logical operators).
+
 function rewriteCode() {
     let n = +prompt();
 
