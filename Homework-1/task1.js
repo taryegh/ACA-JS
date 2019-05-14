@@ -11,9 +11,9 @@ function checkOdd_Even(number) {
         return 'The number is odd';
     }
 }
-checkOdd_Even(123);
-checkOdd_Even(35);
-checkOdd_Even(70);
+console.log(checkOdd_Even(123));
+console.log(checkOdd_Even(35));
+console.log(checkOdd_Even(70));
 
 
 
