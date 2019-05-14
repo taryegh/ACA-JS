@@ -10,6 +10,7 @@ function checkIsDevisable(a, b) {
         console.log(0);
     }
 }
+
 checkIsDevisable(3, 14);
 checkIsDevisable(18, 2);
 checkIsDevisable(7, 21);
@@ -22,6 +23,7 @@ checkIsDevisable(7, 21);
 function checkIsDevisableTern(a, b) {
     return a % b === 0 || b % a === 0 ? 1 : 0;
 }
+
 console.log(checkIsDevisableTern(3, 14));
 console.log(checkIsDevisableTern(18, 2));
 console.log(checkIsDevisableTern(7, 21));
