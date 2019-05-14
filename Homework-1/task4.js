@@ -36,8 +36,7 @@ function lastDig(n) {
 
     const lDig = n % 10;
     let rest = Math.floor(n / 10);
-
-
+    
     return lDig !== 0 && rest !== 0 ? +lDig.toString() + rest.toString() : n;
 }
 
