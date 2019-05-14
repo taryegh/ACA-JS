@@ -10,6 +10,7 @@ function checkOdd_Even(number) {
         return 'The number is odd';
     }
 }
+
 console.log(checkOdd_Even(123));
 console.log(checkOdd_Even(35));
 console.log(checkOdd_Even(70));
@@ -21,6 +22,7 @@ console.log(checkOdd_Even(70));
 function checkOdd_EvenTer(n) {
     return n % 2 === 0 ? 'even' : 'odd';
 }
+
 console.log(checkOdd_EvenTer(123));
 console.log(checkOdd_EvenTer(35));
 console.log(checkOdd_EvenTer(70));
