@@ -23,9 +23,6 @@ function sortNum(n1, n2, n3) {
             console.log(n3 + ', ' + n1 + ', ' + n2);
         }
     }
-
-    //let arr = [n1, n2, n3];
-    //console.log(arr.sort(function (a, b) { return a - b }));
 }
 
 sortNum(45, 26, 78);
