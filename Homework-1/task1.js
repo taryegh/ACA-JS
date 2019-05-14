@@ -3,11 +3,12 @@
 
 
 // 1. Given a number. Print “odd” if the number is odd and “even” if it’s even.
+
 function checkOdd_Even(number) {
     if (number % 2 === 0) {
-        console.log('The number is even');
+        return 'The number is even';
     } else {
-        console.log('The number is odd');
+        return 'The number is odd';
     }
 }
 checkOdd_Even(123);
