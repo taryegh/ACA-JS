@@ -1,3 +1,6 @@
+'use strict'
+
+
 // ------ Call -------
 
 // example 1
