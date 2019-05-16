@@ -29,3 +29,31 @@ console.log(calcProdDig(1233));
 console.log(calcProdDig(5));
 console.log(calcProdDig(0));
 console.log(calcProdDig(455));
+
+
+
+
+// Another Solution
+function calcProdDig2(n) {
+    
+    if (n <= 0 || n === undefined) {
+        return 'Cannot calculate.';
+    }
+    
+    let nToSt = n.toString();
+    let sum = 0; let prod = 1;
+    
+    for (let i = 0; i < nToSt.length; i++) {
+        sum += +nToSt[i];
+        prod *= +nToSt[i];
+    }
+    
+    return prod % sum === 0 ? `Quotient is ${prod / sum}.` : `Reminder is ${prod % sum}.`
+    
+    
+}
+
+console.log(calcProdDig2(1233));
+console.log(calcProdDig2(5));
+console.log(calcProdDig2(0));
+console.log(calcProdDig2(455));
