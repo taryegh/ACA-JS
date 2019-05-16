@@ -34,6 +34,7 @@ console.log(calcProdDig(455));
 
 
 // Another Solution - toString
+
 function calcProdDig2(n) {
     
     if (n <= 0 || n === undefined) {
@@ -49,8 +50,6 @@ function calcProdDig2(n) {
     }
     
     return prod % sum === 0 ? `Quotient is ${prod / sum}.` : `Reminder is ${prod % sum}.`
-    
-    
 }
 
 console.log(calcProdDig2(1233));
