@@ -33,7 +33,7 @@ console.log(calcProdDig(455));
 
 
 
-// Another Solution
+// Another Solution - toString
 function calcProdDig2(n) {
     
     if (n <= 0 || n === undefined) {
