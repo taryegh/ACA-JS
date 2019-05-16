@@ -1,7 +1,8 @@
 'use strict'
 
 
-// 3. Given a number n( n> 0 ). Print Fibonacci series up to n.
+// 3. Given a number n( n > 0 ). Print Fibonacci series up to n.
+
 function fibSeries(n) {
     let arr = [0, 1];
 
