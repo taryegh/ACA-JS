@@ -10,5 +10,6 @@ function findSortViolation(arr) {
 
     return - 1;
 };
+
 console.log(findSortViolation([2, 12, 15, 48, 64]));
 console.log(findSortViolation([-9, -4, -4, 3, 12, 4, 5]));
