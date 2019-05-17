@@ -13,9 +13,9 @@ function getEvens(st, end) {
         
         while (j > 0) {
             let lDig = j % 10;
-            if (lDig % 2 === 0) {
-                arr.unshift(lDig);
-            }
+            
+            if (lDig % 2 === 0) arr.unshift(lDig);
+
             j = Math.floor(j / 10);
         }
         
