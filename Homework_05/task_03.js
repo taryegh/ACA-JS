@@ -5,7 +5,7 @@
 
 function calcDig(n) {
     let sDigN = 0; // sum of digits of n
-    let sResDigN = 0; // sum of digits of SumDigN
+    let sResDigN = 0; // sum of digits of sDigN
     
     while (n >= 1) {
         let lDig = n % 10;
