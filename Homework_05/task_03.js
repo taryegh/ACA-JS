@@ -4,25 +4,25 @@
 // 3. Given a number. Write a function that calculates its sum of the digits and if that sum has more than 1 digit find the sum of digits of that number. Repeat that process if needed and return the result.
 
 function calcDig(n) {
-    let sumDigN = 0; // sum of digits of n
-    let sumOfResDig = 0; // sum of digits of SumDigN
+    let sDigN = 0; // sum of digits of n
+    let sResDigN = 0; // sum of digits of SumDigN
     
     while (n >= 1) {
-        let lastDig = n % 10;
-        sumDigN += lastDig;
+        let lDig = n % 10;
+        sDigN += lDig;
         n = Math.floor(n / 10);
     }
 
-    if (Math.floor(sumDigN / 10)) {
-        while (sumDigN > 0) {
-            sumOfResDig += sumDigN % 10;
-            sumDigN = Math.floor(sumDigN / 10);
+    if (Math.floor(sDigN / 10)) {
+        while (sDigN > 0) {
+            sResDigN += sDigN % 10;
+            sDigN = Math.floor(sDigN / 10);
         }
         
-        return sumOfResDig;
+        return sResDigN;
     }
     
-    return sumDigN;
+    return sDigN;
 }
 
 console.log(calcDig(14));
