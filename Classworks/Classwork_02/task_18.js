@@ -31,7 +31,7 @@ function fibNRec(n) {
     return fibNRec(n - 1) + fibNRec(n - 2);
 }
 
-// console.log(fibNRec(0));
-// console.log(fibNRec(2));
-// console.log(fibNRec(10));
-// console.log(fibNRec(20));
+console.log(fibNRec(0));
+console.log(fibNRec(2));
+console.log(fibNRec(10));
+console.log(fibNRec(20));
