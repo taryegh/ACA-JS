@@ -1,3 +1,6 @@
+'use strict'
+
+
 // 20. Print the following number pattern:    
 // 1
 // 12
