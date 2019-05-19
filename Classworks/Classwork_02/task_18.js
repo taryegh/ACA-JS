@@ -18,3 +18,20 @@ console.log(fibN(0));
 console.log(fibN(2));
 console.log(fibN(10));
 console.log(fibN(20));
+
+
+
+
+// another solution - RECURSION
+function fibNRec(n) {
+    if (n <= 1) {
+        return n;
+    }
+    
+    return fibNRec(n - 1) + fibNRec(n - 2);
+}
+
+// console.log(fibNRec(0));
+// console.log(fibNRec(2));
+// console.log(fibNRec(10));
+// console.log(fibNRec(20));
