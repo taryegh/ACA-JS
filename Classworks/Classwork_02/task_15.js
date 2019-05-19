@@ -18,3 +18,27 @@ function divPrime(n) {
 
 console.log(divPrime(420));
 console.log(divPrime(99));
+
+
+// printing primes
+function printPrime(n) {
+    let arr = []
+    let bool = true;
+
+    for (let j = 2; j < n; j++) {
+
+        for (var i = 2; i < j; i++) {
+            if (j % i === 0) {
+                bool = false;
+            }
+        }
+
+        if (bool === true) arr.push(j);
+
+        bool = true;
+    }
+
+    return arr;
+}
+
+console.log(printPrime(200));
