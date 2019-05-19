@@ -14,3 +14,22 @@ function calcPowNm(n, m) {
 
 console.log(calcPowNm(4, 5));
 console.log(calcPowNm(6, 10));
+
+
+
+
+// another method
+
+function cPowNm(n, m) {
+    if (n >= 1 && n <= 10) {
+        let prod = 1;
+        for (let i = 1; i <= m; i++) {
+            prod *= n;
+        }
+
+        return prod;
+    }
+}
+
+// console.log(cPowNm(4, 5));
+// console.log(cPowNm(6, 10));
