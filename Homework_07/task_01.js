@@ -49,7 +49,7 @@ class Author {
 		if (val === 'male' || val === 'female') {
 			this._gender = val;
 		} else {
-			console.log('Please enter male or female');
+			console.log('Enter male or female');
 			return;
 		}
 	}
