@@ -1,7 +1,6 @@
 'use strict'
 
 
-
 // 1.1 Create an Author class.
 // Author should have: name, email, gender.
 // It should have appropriate getters and setters. It should have a toString method.
@@ -13,55 +12,35 @@ class Author {
 		this.gender = gender;
 	}
 
-	// name
 	get name() {
 		return this._name;
 	}
-
-	set name(val) {
-		if (val.length < 2) {
-			console.log('Name is too short. Enter name longer');
-			return;
-		}
-		this._name = val;
+	set name(value) {
+		this._name = value;
 	}
 
-	// email
 	get email() {
 		return this._email;
 	}
-
-	set email(val) {
-		if (val.includes('@',) && val.includes('.com')) {
-			this._email = val;
-		} else {
-			console.log('Invalid email');
-			return;
-		}
+	set email(value) {
+		this._email = value;
 	}
 
-	// gender
 	get gender() {
 		return this._gender;
 	}
-
-	set gender(val) {
-		if (val === 'male' || val === 'female') {
-			this._gender = val;
-		} else {
-			console.log('Enter male or female');
-			return;
-		}
+	set gender(value) {
+		this._gender = value;
 	}
 
+
 	toString() {
-		return this.email === undefined ? 'N/A' : this.email.toString();
+		return `name: ${this.name}, eMail: ${this.email}, gender: ${this.gender}`;
 	}
 }
 
-let author01 = new Author('John Hammond', 'jhammond@gmail.com', 'male');
+let author01 = new Author('John Hammond', 'jhammond@jurassic.com', 'male');
 console.log(author01);
-console.log(author01.toString());
 
 
 
@@ -81,63 +60,43 @@ class Book {
 		this.quantity = quantity;
 	}
 
-	// title
 	get title() {
 		return this._title;
 	}
-
-	set title(val) {
-		if (typeof val === 'string') {
-			this._title = val;
-		} else {
-			console.log('Enter valid title');
-			return;
-		}
+	set title(value) {
+		this._title = value;
 	}
 
-	// author
-	get authorPos() {
-		return `Professor ${this.author}`;
+	get author() {
+		return this._author;
+	}
+	set author(value) {
+		this._author = value;
 	}
 
-	// price
 	get price() {
 		return this._price;
 	}
-
-	set price(val) {
-		if (typeof val === 'number') {
-			this._price = val;
-		} else {
-			console.log('Enter numeric value');
-			return
-		}
+	set price(value) {
+		this._price = value;
 	}
 
-	// quantity
 	get quantity() {
 		return this._quantity;
 	}
-
-	set quantity(val) {
-		if (typeof val !== 'number') {
-			console.log('Enter numeric value');
-			return
-		}
-		this._quantity = val;
+	set quantity(value) {
+		this._quantity = value;
 	}
 
 
 	getProfit() {
-		return this.price * this.quantity;
+		return `Profit: $${this.price * this.quantity}`;
 	}
 
 	toString() {
-		return this.quantity.toString();
+		return `Title: ${this.title}, Author: ${this.author}, Price: ${this.price}, Quantity: ${this.quantity}`;
 	}
 }
 
-let book01 = new Book('Jurassic Park', 'John Hammond', 300, 60);
+let book01 = new Book('Dead Mountaineer\'s Hotel', 'Arkady and Boris Strugatsky', 10, 200000);
 console.log(book01);
-console.log(book01.authorPos);
-console.log(book01.getProfit());
