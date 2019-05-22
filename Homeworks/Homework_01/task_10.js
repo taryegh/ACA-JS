@@ -40,12 +40,12 @@ console.log(checkDigNum2(8, 45689));
 function checkDig(dig, n) {
   const lE = n % 10;
 
-  if (n === 0) {
-    return 'No';
-  }
-
   if (dig === lE) {
     return 'Yes';
+  }
+ 
+  if (n === 0) {
+    return 'No';
   }
 
   return checkDig(dig, Math.floor(n / 10));
