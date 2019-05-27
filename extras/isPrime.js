@@ -1,7 +1,7 @@
 'use strict';
 
 
-// 7. Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.
+// Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.
 
 function showPrimes(n) {
   for (let i = 2; i < n; i++) {
