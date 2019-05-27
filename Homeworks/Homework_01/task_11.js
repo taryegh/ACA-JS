@@ -8,12 +8,12 @@ function reverseDigs(n) {
     return n;
   }
 
-  const stN = n.toString();
-  const fEl = stN.slice(0, 1);
-  const lEl = stN.slice(stN.length - 1);
-  const mid = stN.slice(1, stN.length - 1);
+  const nSt = n.toString();
+  const fE = nSt.slice(0, 1);
+  const lE = nSt.slice(nSt.length - 1);
+  const mid = nSt.slice(1, nSt.length - 1);
 
-  return +(lEl + mid + fEl);
+  return +(lE + mid + fE);
 }
 
 console.log(reverseDigs(2));
