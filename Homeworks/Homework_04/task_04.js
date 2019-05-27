@@ -3,7 +3,6 @@
 
 // 4. Given an array of numbers. Write a recursive function to find its minimal positive element. (if such element does not exist, return -1)
 
-
 function getMinPos(arr) {
   const posArr = arr.filter(el => el >= 0);
   if (posArr.length === 1 || posArr.length === 0) {
