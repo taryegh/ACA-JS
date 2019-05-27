@@ -3,24 +3,24 @@
 
 // 1. Given a number. Print “odd” if the number is odd and “even” if it’s even.
 
-function checkOddEven(n) {
+function isEven(n) {
   if (n % 2 === 0) {
-    return 'The number is even';
+    return 'even';
   }
-  return 'The number is odd';
+  return 'odd';
 }
 
-console.log(checkOddEven(123));
-console.log(checkOddEven(35));
-console.log(checkOddEven(70));
+console.log(isEven(123));
+console.log(isEven(35));
+console.log(isEven(70));
 
 
 // Solving with ternary operator
 
-function checkOddEvenT(n) {
+function isEvenT(n) {
   return n % 2 ? 'odd' : 'even';
 }
 
-console.log(checkOddEvenT(123));
-console.log(checkOddEvenT(35));
-console.log(checkOddEvenT(70));
+console.log(isEvenT(123));
+console.log(isEvenT(35));
+console.log(isEvenT(70));
