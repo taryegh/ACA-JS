@@ -6,6 +6,7 @@
 function getType(arg) {
   return typeof(arg);
 }
+
 console.log(getType(5));
 console.log(getType([]));
 console.log(getType(function(){}));
