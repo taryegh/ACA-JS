@@ -19,4 +19,5 @@ function getMatrix(n) {
 
   return res;
 }
+
 console.log(getMatrix(5));
