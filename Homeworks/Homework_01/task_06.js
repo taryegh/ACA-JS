@@ -34,13 +34,3 @@ function sortN(...args) {
 
 console.log(sortN(45, 26, 78));
 console.log(sortN(-23, -456, 0));
-
-
-// another method
-function sortNum2(n1, n2, n3) {
-  const arr = [n1, n2, n3];
-  return arr.sort((a, b) => a - b);
-}
-
-console.log(sortNum2(45, 26, 78));
-console.log(sortNum2(-23, -456, 0));
