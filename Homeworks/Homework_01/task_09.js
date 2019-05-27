@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 
-// 9. Given the following code rewrite it using only two ​if ​operators. (​Hint: ​use logical operators).
+// 9. Given the following code rewrite it using only two if operators.  Hint: use logical operators).
 
 function rewriteCode() {
   const n = +prompt();
