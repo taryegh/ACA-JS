@@ -7,7 +7,7 @@ function findSecondMax(arr) {
   let biggest = -Infinity; let nextBiggest = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
-    const cur = arr[i];
+    let cur = arr[i];
 
     if (cur > biggest) {
       nextBiggest = biggest;
@@ -26,7 +26,7 @@ console.log(findSecondMax([-60, 2, 43, -18, 5, -19, 36, 7, 56]));
 
 // another method
 function SecMax(arr) {
-  const sArr = arr.slice().sort((a, b) => a - b);
+  let sArr = arr.slice().sort((a, b) => a - b);
   sArr.pop();
   const lEl = sArr.pop();
   return arr.indexOf(lEl);
