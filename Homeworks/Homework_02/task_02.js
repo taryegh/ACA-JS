@@ -4,10 +4,10 @@
 // 2. Given a number n ( n>= 0 ). Print nth Fibonacci number. (Fibonacci series: 0, 1, 1, 2, 3, 5, 8 …, ak = ak-1 + ak-2)
 
 function fibN(n) {
-  const arr = [0, 1];
+  let arr = [0, 1];
 
   for (let i = 2; i <= n; i++) {
-    const res = arr[i - 2] + arr[i - 1];
+    let res = arr[i - 2] + arr[i - 1];
     arr.push(res);
   }
 
