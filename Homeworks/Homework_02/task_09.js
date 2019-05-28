@@ -5,7 +5,7 @@
 
 function createEvenlySpaced(a, b, n) {
   if (a <= b && n > 0) {
-    const arr = [];
+    let arr = [];
     const sp = (b - a) / (n - 1);
 
     for (let i = a; i <= b; i += sp) {
@@ -15,6 +15,7 @@ function createEvenlySpaced(a, b, n) {
     return arr;
   }
 }
+
 console.log(createEvenlySpaced(1, 5, 1));
 console.log(createEvenlySpaced(10, 100, 3));
 console.log(createEvenlySpaced(1, 5, 6));
