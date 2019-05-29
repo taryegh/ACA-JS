@@ -1,0 +1,147 @@
+1. The function definitions in JavaScript begins with
+a) Identifier and Parentheses
+b) Return type and Identifier
+c) Return type, Function keyword, Identifier and Parentheses
+d) Identifier and Return type
+
+c
+
+
+
+2. Consider the following code snippet
+
+function printprops(o) {
+  for (var p in o)
+    console.log(p + ": " + o[p] + "\n");
+}
+
+What will the above code snippet result ?
+a) Prints the contents of each property of o
+b) Returns undefined
+c) prints only one property
+d) prints the address of elements
+
+a
+
+
+
+3. When does the function name become optional in JavaScript?
+a) When the function is defined as a looping statement
+b) When the function is defined as expressions
+c) When the function is predefined
+d) when the function is called
+
+b
+
+
+
+
+
+4. What is the purpose of a return statement in a function?
+a) Returns the value and continues executing rest of the statements, if any
+b) Returns the value and stops the program
+c) Returns the value and stops executing the function
+d) Stops executing the function and returns the value
+
+d
+
+
+
+
+
+
+5. What will happen if a return statement does not have an associated expression?
+a) It returns the value 0
+b) It will throw an exception
+c) It returns the undefined value
+d) It will throw an error
+
+c
+
+
+
+
+
+
+
+6. A function with no return value is called
+a) Procedures
+b) Method
+c) Static function
+d) Dynamic function
+
+a
+
+
+
+
+
+
+
+7. Consider the following code snippet
+
+function hypotenuse(a, b) {
+  function square(x) {
+    return x * x;
+  }
+  return Math.sqrt(square(a) + square(b));
+}
+
+What does the above code result?
+a) Sum of square of a and b with sqrt
+b) Square of sum of a and b
+c) Sum of a and b square
+d) None of the mentioned
+
+a
+
+
+
+8. Consider the following code snippet :
+
+var string2Num=parseInt("123xyz");
+The result for the above code snippet would be :
+a) 123
+b) 123xyz
+c) Exception
+d) NaN
+
+a
+
+
+
+
+
+9. What is the difference between the two lines given below ?
+!!(obj1 && obj2);
+(obj1 && obj2);
+
+a) Both the lines result in a boolean value “True”
+b) Both the lines result in a boolean value “False”
+c) Both the lines checks just for the existence of the object alone
+d) The first line results in a real boolean value whereas the second line merely checks for the existence of the objects
+
+d
+
+
+
+10. Consider the following code snippet :
+
+function constfuncs() 
+{
+    var funcs = [];
+    for(var i = 0; i < 10; i++)
+        funcs[i] = function() { return i; };
+    return funcs;
+}
+var funcs = constfuncs();
+funcs[5]()
+
+
+What does the last statement return ?
+a) 9
+b) 0
+c) 10
+d) None of the mentioned
+
+c
