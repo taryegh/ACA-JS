@@ -1,0 +1,165 @@
+// Test from infoTechSite
+
+
+1. JavaScript functions can be invoked in which of the following ways.
+i) as functions   ii) as methods   iii) as constructors
+A) i and ii only
+B) ii and iii only
+C) i and iii only
+D) All i, ii and iii
+
+D
+
+
+2. Functions are invoked as functions or as methods with an …………….
+A) invocation statement
+B) invocation expression
+C) invocation function
+D) invocation method
+
+B
+
+
+
+3. An ……………… consists of a function expression that evaluates to a function object followed by an open parenthesis, a comma separated list of zero or more argument expressions and a close parenthesis.
+A) invocation statement
+B) invocation expression
+C) invocation function
+D) invocation method
+
+B
+
+
+
+
+4. If a function or method invocation preceded by the keyword new, then it is a ……………
+A) constructor invocation
+B) new invocation
+C) indirect invocation
+D) direct invocation
+
+A
+
+
+
+5. In ………………. you can invoke any function as a method of any object, even if it is not actually a method of that object.
+A) constructor invocation
+B) new invocation
+C) indirect invocation
+D) direct invocation
+
+C
+
+
+
+
+6. Both call( ) and apply( ) methods allow you to explicitly specify the …………….. value for the invocation.
+A) this
+B) me
+C) that
+D) new
+
+A
+
+
+
+
+11. State whether the following statements are True or False about JavaScript function.
+i) The function can be assigned to another variable
+ii) Functions can also be assigned to object properties rather than variables
+iii) Function require names at all
+A) i-True, ii-False, iii-False
+B) i-True, ii-True, iii-False
+C) i-False, ii-False, iii-True
+D) i-False, ii-True, iii-True
+
+B
+
+
+
+12. The combination of a function object and a scope in which the functions variables are resolved in called a ………………..
+A) coordinator
+B) joiner
+C) closure
+D) resolver
+
+C
+
+
+
+
+
+
+13. The ……………. property of a function is a read only property which returns the number of parameters it declares in its parameter list.
+A) length
+B) number
+C) parameter
+D) width
+
+A
+
+
+
+
+14. The ……………… specifies usually  the number of arguments that the function expects.
+A) argument.number
+B) argument.length
+C) argument.parameter
+D) argument.width
+
+B
+
+
+
+
+15. When a function is used as a constructor, the newly created object inherits properties from the ………….. object.
+A) length
+B) prototype
+C) constructor
+D) collable
+
+B
+
+
+
+
+16. Any arguments to ……………… after the first invocation context argument are the values that are passed to the function that is invoked.
+A) apply( )
+B) call( )
+C) bind( )
+D) string( )
+
+B
+
+
+
+
+
+18. The …………… method is like the call( ) method, except that the arguments to be passed to the function are specified as an array.
+A) apply( )
+B) call( )
+C) bind( )
+D) string( )
+
+A
+
+
+
+
+19. If a function is defined to accept an arbitrary number of arguments, the …………… method allows you to invoke that function on the contents of an array of arbitrary length.
+A) apply( )
+B) call( )
+C) bind( )
+D) string( )
+
+A
+
+
+
+// 20. When you invoke the …………… method on a function f and pass an object o,  the method returns a new function.
+A) apply( )
+B) call( )
+C) bind( )
+D) string( )
+
+C
