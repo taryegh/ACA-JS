@@ -1,0 +1,84 @@
+////////////////////////////////
+//// ---- CLOSURES --------
+
+
+
+1. What kind of scoping does JavaScript use?
+a) Literal
+b) Lexical
+c) Segmental
+d) Sequential
+
+b
+
+
+
+
+2. What must be done in order to implement Lexical Scoping?
+a) Get the object
+b) Dereference the current scope chain
+c) Reference the current scope chain
+d) Return the value
+
+c
+
+
+
+
+
+
+
+3. What is a closure?
+a) Function objects
+b) Scope where function’s variables are resolved
+c) Both Function objects and Scope where function’s variables are resolved
+d) Function return value
+
+c
+
+
+
+
+
+
+4. Which of the following are examples of closures?
+a) Objects
+b) Variables
+c) Functions
+d) All of the mentioned
+
+d
+
+
+
+
+
+var scope = "global scope";
+function checkscope() {
+var scope = "local scope"; 
+function f() 
+{ 
+     return scope; 
+}
+return f;
+}
+
+
+What is the function of the above code snippet?
+a) Returns value null
+b) Returns exception
+c) Returns the value in scope
+d) Shows an error message
+
+c
+
+
+
+
+7. What is the fundamental rule of lexical scoping?
+a) Functions are declared in the scope
+b) Functions are executed using scope chain
+c) Functions are declared outside the scope
+d) Variable are declared within the function
+
+b
