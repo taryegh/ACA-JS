@@ -11,7 +11,7 @@ let group = {
 
   showList() {
     this.students.forEach(
-      student => console.log(this.title + ': ' + student)
+      el => console.log(this.title + ': ' + el)
     );
   }
 };
