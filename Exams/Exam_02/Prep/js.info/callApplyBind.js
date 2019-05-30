@@ -143,3 +143,5 @@ function printName(name) {
     console.log('Bi ' + this.name);
   }
 }
+
+console.log(printName('Jack')) // Hi Jack
