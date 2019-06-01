@@ -70,7 +70,8 @@ let num = Number("123"); // convert a string to number
 let str = "Hello";
 str.test = 5;
 
-console.log(str.test);
+console.log(str.test); // Uncaught TypeError: Cannot create property 'test' on string 'Hello'
+
 // Depending on whether you have use strict or not, the result may be:
 // undefined (no strict mode)
 // An error (strict mode).
