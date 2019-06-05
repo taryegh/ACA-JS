@@ -153,10 +153,3 @@ body {
 #container ul li #rem:hover {
   background-color: #e61d1d;
 }
-
-
-
-#container .complexList {
-  opacity: 1;
-  border-radius: 10px;
-}
