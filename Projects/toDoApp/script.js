@@ -1,7 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable prefer-const */
-/* eslint-disable no-multiple-empty-lines */
-
 'use strict';
 
 // --------- GENERAL VARIABLES ---------
@@ -94,11 +90,3 @@ document.addEventListener('keypress', (event) => {
     addItem();
   }
 });
-
-
-
-
-
-
-
-
