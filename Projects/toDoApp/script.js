@@ -2,9 +2,7 @@
 
 // --------- GENERAL VARIABLES ---------
 
-const uL = document.getElementById('uList');
 const addButton = document.getElementById('add');
-
 
 
 
@@ -17,22 +15,26 @@ function addItem() {
   const input = document.getElementById('inputText');
   const item = input.value;
   const text = document.createTextNode(item);
-
+  
   if (item === '') return false;
 
+
+  // ul
+  const uL = document.getElementById('uList');
+  
 
   // li
   const li = document.createElement('li');
   li.setAttribute('id', 'complexList');
 
 
-  // Checkbox
+  // checkbox
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.setAttribute('id', 'check');
 
 
-  // Label
+  // label
   const label = document.createElement('label');
 
 
