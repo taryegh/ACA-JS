@@ -2,9 +2,8 @@
 
 // --------- GENERAL VARIABLES ---------
 
-let uL = document.getElementById('uList');
-let addButton = document.getElementById('add');
-let li;
+const uL = document.getElementById('uList');
+const addButton = document.getElementById('add');
 
 
 
@@ -15,44 +14,45 @@ let li;
 
 // --------- FUNCTIONS ---------
 function addItem() {
-  let input = document.getElementById('inputText');
-  let item = input.value;
-  let textNode = document.createTextNode(item);
+  const input = document.getElementById('inputText');
+  const item = input.value;
+  const text = document.createTextNode(item);
 
   if (item === '') return false;
 
-  li = document.createElement('li');
+
+  // li
+  const li = document.createElement('li');
   li.setAttribute('id', 'complexList');
 
 
-
-
   // Checkbox
-  let checkbox = document.createElement('input');
+  const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.setAttribute('id', 'check');
 
 
   // Label
-  let label = document.createElement('label');
+  const label = document.createElement('label');
 
 
-  // Button
-  let button = document.createElement('button');
+  // Remove Button
+  const button = document.createElement('button');
   button.type = 'button';
   button.textContent = 'X';
   button.setAttribute('id', 'rem');
 
 
+  // Appending Children
   uL.appendChild(li);
-  label.appendChild(textNode);
-  uL.insertBefore(li, uL.childNodes[0]);
-
-  // li
   li.appendChild(checkbox);
   li.appendChild(label);
+  label.appendChild(text);
   li.appendChild(button);
+  uL.insertBefore(li, uL.childNodes[0]);
 
+
+  // Removing the input field
   input.value = '';
 }
 
@@ -67,16 +67,21 @@ document.addEventListener('click', function (e) {
   if (!e.target || e.target.id !== 'rem') {
     return;
   }
+  
   const parent = e.target.parentElement;
+
   if (!parent) {
     return;
   }
+
   const parentOfParent = parent.parentElement;
   parent.removeChild(e.target);
-  if (!!parentOfParent) {
+
+  if (parentOfParent) {
     parentOfParent.removeChild(parent);
   }
 });
+
 
 
 
