@@ -3,7 +3,7 @@
 **********************************************/
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(/sources/img/bkg.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(sources/img/bkg.jpg);
   background-size: cover;
   background-position: center;
   font-family: 'Lato'
@@ -120,7 +120,7 @@ body {
   color: rgb(22, 156, 127);
 }
 
-#container ul li input[type="checkbox"]:checked + label {
+#container ul li input[type="checkbox"]:checked+label {
   text-decoration: line-through;
   color: rgba(63, 63, 63, 0.5);
 }
@@ -133,7 +133,6 @@ body {
   font-size: 16px;
   color: rgb(51, 82, 82);
 }
-
 
 #container ul li #rem {
   float: right;
