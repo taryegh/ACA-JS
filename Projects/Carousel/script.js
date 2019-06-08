@@ -3,7 +3,7 @@
 // GENERAL VARIABLES
 
 const container = document.getElementById('imgContainer');
-const images = ['./src/img1.jpg', './src/img2.jpg', './src/img3.jpg', './src/img4.jpg'];
+const images = ['./src/img1.jpg', './src/img2.jpg', './src/img3.jpg', './src/img4.jpg', './src/img5.jpg'];
 let counter = 0;
 let interval;
 
