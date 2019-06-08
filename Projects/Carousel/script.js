@@ -1,7 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable no-use-before-define */
-
 'use strict';
 
 // GENERAL VARIABLES
