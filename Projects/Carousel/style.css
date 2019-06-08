@@ -1,0 +1,51 @@
+body {
+  margin: auto;
+  text-align: center;
+}
+
+#imgContainer {
+  width: 800px;
+  height: 600px;
+  background-image: url('./src/img1.jpg');
+  background-size: cover;
+  border: 12px solid rgb(211, 219, 226);
+  border-radius: 6px;
+  position: relative;
+  margin: auto;
+  top: 20px;
+}
+
+button {
+  width: 70px;
+  height: 40px;
+  opacity: 0.8;
+  font-size: 26px;
+  border-radius: 4px;
+  color: dimgrey;
+  outline: none;
+  position: absolute;
+}
+
+#prev {
+  top: 0;
+  left: 0;
+  margin-top: 300px;
+  margin-left: 180px;
+}
+
+#next {
+  top: 0;
+  right: 0;
+  margin-top: 300px;
+  margin-right: 180px;
+}
+
+#play {
+  left: 0;
+  margin-left: 520px;
+}
+
+#pause {
+  right: 0;
+  margin-right: 520px;
+}
