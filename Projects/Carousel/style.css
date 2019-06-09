@@ -15,6 +15,17 @@ body {
   top: 20px;
 }
 
+.buttons {
+  position: relative;
+  margin: auto;
+  top: 30px;
+  width: 400px;
+  height: 50px;
+  border: 2px solid rgb(220, 226, 228);
+  border-radius: 8px;
+  background-color: rgb(251, 251, 251)
+}
+
 button {
   width: 70px;
   height: 40px;
@@ -27,30 +38,29 @@ button {
 }
 
 button:hover {
-  background-color: rgb(201, 244, 255);
+  background-color: rgb(238, 238, 238);
 
 }
 
-#prev {
-  top: 0;
-  left: 0;
-  margin-top: 300px;
-  margin-left: 180px;
-}
 
-#next {
-  top: 0;
-  right: 0;
-  margin-top: 300px;
-  margin-right: 180px;
-}
 
 #play {
-  left: 0;
-  margin-left: 520px;
+  position: relative;
+  right: 150px;
+  top: 4.5px;
 }
 
 #pause {
-  right: 0;
-  margin-right: 520px;
+  left: 100px;
+  top: 4.5px;
+}
+
+#prev {
+  right: 100px;
+  top: 4.5px;
+}
+
+#next {
+  right: 15px;
+  top: 4.5px;
 }
