@@ -1,0 +1,42 @@
+
+body {
+  background: rgb(49, 71, 92);
+  color: aliceblue;
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  word-spacing: 2px;
+  text-align: center;
+  margin: 20px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 30px;
+  word-spacing: 2px;
+  text-align: center;
+  margin: 20px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+
+canvas {
+  border: solid 4px rgb(156, 174, 177);
+  border-radius: 1%;
+  height: 90vh;
+}
+
+#score-container {
+  background-color: rgb(78, 101, 128);
+  display: inline-block;
+  border: solid 3px rgb(156, 174, 177);
+  border-radius: 1%;
+  position: absolute;
+  right: 130px;
+  bottom: 44px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 20px; 
+}
