@@ -1,3 +1,4 @@
+//////////////////////////////////////////////////////////////
 There are 7 basic data types in JavaScript.
 
 - number for numbers of any kind: integer or floating-point.
@@ -7,3 +8,125 @@ There are 7 basic data types in JavaScript.
 - undefined for unassigned values – a standalone type that has a single value undefined.
 - object for more complex data structures.
 - symbol for unique identifiers.
+
+
+
+//////////////////////////////////////////////////////////////
+
+typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+
+
+
+//////////////////////////////////////////////////////////////
+
+typeof Number
+"function"
+
+typeof Number()
+"number"
+
+typeof Object
+"function"
+
+typeof Function
+"function"
+
+typeof String
+"function"
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+alert( Number("   123   ") ); // 123
+alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number(true) );        // 1
+alert( Number(false) );       // 0
+Please note that null and undefined behave differently here: null becomes zero while undefined becomes NaN.
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+Almost all mathematical operations convert values to numbers. A notable exception is addition +. If one of the added values is a string, the other one is also converted to a string.
+
+Then, it concatenates (joins) them:
+
+alert( 1 + '2' ); // '12' (string to the right)
+alert( '1' + 2 ); // '12' (string to the left)
+
+This only happens when at least one of the arguments is a string. Otherwise, values are converted to numbers.
+
+
+//////////////////////////////////////////////////////////////
+
+
+ToNumber
+
+Value -	      Becomes…
+undefined	    NaN
+null	        0
+true / false	1 / 0
+string	The string is read “as is”, whitespaces from both sides are ignored. An empty string becomes 0. An error gives NaN.
+
+
+//////////////////////////////////////////////////////////////
+
+
+ToBoolean – Occurs in logical operations. Can be performed with Boolean(value).
+Value	                        Becomes…
+0, null, undefined, NaN, ""	  false
+any other value	              true
+
+
+//////////////////////////////////////////////////////////////
+
+
+"" + 1 + 0 // '10' ok
+"" - 1 + 0 // -1 ok
+true + false // 1 ok
+6 / "3" // 2 ok
+"2" * "3" // 6 ok
+4 + 5 + "px" // '9px' ok
+"$" + 4 + 5 // '$45' ok
+"4" - 2 // 2 ok
+"4px" - 2 // NAN ok
+7 / 0 // infinity ok
+"  -9  " + 5 // ' -9 5' ok
+"  -9  " - 5 // -14 ok
+null + 1 // 1 (null becomes 0)
+undefined + 1 // NAN (undefined becomes NAN)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
