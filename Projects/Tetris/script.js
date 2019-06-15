@@ -14,9 +14,6 @@ context.scale(20, 20); // scaling everything 20x
 
 
 
-
-
-
 //////////////////////////////////////
 // --------- TETROMINOES ------------
 function createPiece(type) {
@@ -82,6 +79,10 @@ const colors = [
   '#D980FA',
   '#B53471',
 ];
+
+
+
+
 
 
 
@@ -331,10 +332,10 @@ function updateScore() {
 
 
 
-////////////////////////////////////////////
-// --------- KEYBOARD CONTROLS ------------
+//////////////////////////////////////////////////////
+// --------- KEYBOARD AND MOUSE CONTROLS ------------
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', event => {
   // left
   if (event.which === 37) {
     playerMove(-1);
@@ -357,10 +358,14 @@ document.addEventListener('keydown', (event) => {
 });
 
 
+// init
+start.addEventListener('click', function() {
+  document.getElementById('start-container').style.display = 'none';
+  document.getElementById('score-container').style.display = 'block';
 
+  init();
 
-
-
+});
 
 
 
@@ -374,7 +379,13 @@ document.addEventListener('keydown', (event) => {
 
 
 // INIT
-playerReset();
-updateScore();
-update();
+
+function init() {
+  playerReset();
+  updateScore();
+  update();
+}
+
+
+
 
