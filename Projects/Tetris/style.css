@@ -2,12 +2,11 @@
 body {
   background: rgb(49, 71, 92);
   color: aliceblue;
-  font-family: 'Lato', 'Arial', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size: 30px;
   text-align: center;
   word-spacing: 2px;
   text-align: center;
-  margin: 20px;
   letter-spacing: 1px;
   font-weight: 300;
 }
@@ -24,19 +23,55 @@ h2 {
 
 canvas {
   border: solid 4px rgb(156, 174, 177);
-  border-radius: 1%;
+
   height: 90vh;
 }
 
 #score-container {
+  display: none;
   background-color: rgb(78, 101, 128);
   display: inline-block;
-  border: solid 3px rgb(156, 174, 177);
-  border-radius: 1%;
+  display: none;
+  border: solid 6px rgb(156, 174, 177);
+
   position: absolute;
   right: 130px;
-  bottom: 44px;
+  bottom: 65px;
   padding-right: 40px;
   padding-left: 40px;
   padding-bottom: 20px; 
+}
+
+
+#start-container {
+  background-color: #27ae60;
+  border: solid 6px #d1d8e0;
+  display: inline-block;
+  padding-right: 70px;
+  padding-left: 70px;
+  padding-bottom: 50px;
+  position: absolute;
+  right: 535px;
+  bottom: 500px;
+
+}
+
+#start-container h2 {
+  color: #ecf0f1;
+}
+
+#start-container button {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #cf6a87;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+
+  position: relative;
+  top: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
 }
