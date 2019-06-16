@@ -253,3 +253,33 @@ The first OR || evaluates it’s left operand alert(1). That shows the first mes
 The alert returns undefined, so OR goes on to the second operand searching for a truthy value.
 The second operand 2 is truthy, so the execution is halted, 2 is returned and then shown by the outer alert.
 There will be no 3, because the evaluation does not reach alert(3).
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+What is this code going to show?
+
+alert( 1 && null && 2 );
+
+
+What will this code show?
+
+alert( alert(1) && alert(2) );
+
+
+//////////////////////////////////////////////////////////////
+
+
+What will the result be?
+
+alert( null || 2 && 3 || 4 ); // 3
+
+
+//////////////////////////////////////////////////////////////
+
+
+
