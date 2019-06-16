@@ -172,3 +172,49 @@ null === +"\n0\n" // false
 //////////////////////////////////////////////////////////////
 
 
+alert - shows a message.
+prompt - shows a message asking the user to input text. It returns the text or, if CANCEL or Esc is clicked, null.
+confirm - shows a message and waits for the user to press “OK” or “CANCEL”. It returns true for OK and false for CANCEL/Esc.
+
+//////////////////////////////////////////////////////////////
+
+[] + {}
+"[object Object]"
+
+[] + []
+""
+
+[] + 3
+"3"
+
+{} + ""
+0
+
+{} + '1'
+1
+
+{} + 1
+1
+
+"" + 7
+"7"
+
+null + {}
+"null[object Object]"
+
+null + undefined
+NaN
+
+'' + NaN
+"NaN"
+
+{} * 2
+VM385:1 Uncaught SyntaxError: Unexpected token *
+
+
+
+
+
+
+
+
