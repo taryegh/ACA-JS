@@ -224,4 +224,32 @@ VM385:1 Uncaught SyntaxError: Unexpected token *
 
 
 
+//////////////////////////////////////////////////////////////
 
+What is the code below going to output?
+
+alert( null || 2 || undefined );
+
+The answer is 2, that’s the first truthy value.
+ alert( null || 2 || undefined );
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+What will the code below output?
+
+alert( alert(1) || 2 || alert(3) );
+
+
+The answer: first 1, then 2.
+
+alert( alert(1) || 2 || alert(3) );
+The call to alert does not return a value. Or, in other words, it returns undefined.
+
+The first OR || evaluates it’s left operand alert(1). That shows the first message with 1.
+The alert returns undefined, so OR goes on to the second operand searching for a truthy value.
+The second operand 2 is truthy, so the execution is halted, 2 is returned and then shown by the outer alert.
+There will be no 3, because the evaluation does not reach alert(3).
