@@ -438,3 +438,93 @@ function foo() {
  console.log(this);
 }
 foo(); // undefined
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  name: "John",
+  hi() { alert(this.name); }
+}
+
+// split getting and calling the method in two lines
+let hi = user.hi;
+hi(); // Error, because this is undefined - we loose this because of two lines.
+
+In order to keep this with variable hi, we should bind:
+
+
+let hii = user.hi.bind(user);
+console.log(hii());
+
+
+//////////////////////////////////////////////////////////////
+
+
+let obj, method;
+
+obj = {
+  go: function() { alert(this); }
+};
+
+obj.go();               // (1) [object Object]
+
+(obj.go)();             // (2) [object Object]
+
+(method = obj.go)();    // (3) undefined
+
+(obj.go || obj.stop)(); // (4) undefined
+
+
+
+//////////////////////////////////////////////////////////////
+
+There’s a ladder object that allows to go up and down:
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+  }
+};
+Now, if we need to make several calls in sequence, can do it like this:
+
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1
+Modify the code of up, down and showStep to make the calls chainable, like this:
+
+ladder.up().up().down().showStep(); // 1
+
+
+
+
+let ladder2 = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function () { // shows the current step
+    alert(this.step);
+    return this;
+  }
+};
+
+ladder2.up().up().up().down().showStep() // 2
+
+
+//////////////////////////////////////////////////////////////
+
