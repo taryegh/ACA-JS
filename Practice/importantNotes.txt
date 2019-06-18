@@ -528,4 +528,140 @@ ladder2.up().up().up().down().showStep() // 2
 
 //////////////////////////////////////////////////////////////
 
+alert( NaN === NaN ); // false
 
+
+//////////////////////////////////////////////////////////////
+
+
+isFinite(value) converts its argument to a number and returns true if it’s a regular number, not NaN/Infinity/-Infinity:
+
+alert( isFinite("15") ); // true
+alert( isFinite("str") ); // false, because a special value: NaN
+alert( isFinite(Infinity) ); // false, because a special value: Infinity
+
+
+Sometimes isFinite is used to validate whether a string value is a regular number:
+
+let num = +prompt("Enter a number", '');
+
+// will be true unless you enter Infinity, -Infinity or not a number
+alert( isFinite(num) );
+
+
+//////////////////////////////////////////////////////////////
+
+0 === -0
+true
+
+//////////////////////////////////////////////////////////////
+
+let str = `Hello`;
+
+alert( str[1000] ); // undefined
+alert( str.charAt(1000) ); // '' (an empty string)
+
+
+
+We can also iterate over characters using for..of:
+
+ for (let char of "Hello") {
+  alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+}
+
+
+//////////////////////////////////////////////////////////////
+
+
+let str = "stringify";
+alert( str.slice(0, 5) ); // 'strin', the substring from 0 to 5 (not including 5)
+
+
+let str = "stringify";
+alert( str.slice(2) ); // ringify, from the 2nd position till the end
+
+//////////////////////////////////////////////////////////////
+str.substring(start [, end])
+Returns the part of the string between start and end.
+
+let str = "stringify";
+
+// these are same for substring
+alert( str.substring(2, 6) ); // "ring"
+alert( str.substring(6, 2) ); // "ring"
+
+
+alert( str.slice(2, 6) ); // "ring" (the same)
+alert( str.slice(6, 2) ); // "" (an empty string)
+
+
+//////////////////////////////////////////////////////////////
+
+
+str.substr(start [, length])
+Returns the part of the string from start, with the given length.
+
+let str = "stringify";
+alert( str.substr(2, 4) ); // ring, from the 2nd position get 4 characters
+
+
+The first argument may be negative, to count from the end:
+
+let str = "stringify";
+alert( str.substr(-4, 2) ); // gi, from the 4th position get 2 characters
+
+//////////////////////////////////////////////////////////////
+
+["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  alert(`${item} is at index ${index} in ${array}`);
+});
+
+//////////////////////////////////////////////////////////////
+
+let arr = [1, 0, false];
+
+alert( arr.indexOf(0) ); // 1
+alert( arr.indexOf(false) ); // 2
+alert( arr.indexOf(null) ); // -1
+
+alert( arr.includes(1) ); // true
+
+
+const arr = [NaN];
+alert( arr.indexOf(NaN) ); // -1 (should be 0, but === equality doesn't work for NaN)
+alert( arr.includes(NaN) );// true (correct)
+
+//////////////////////////////////////////////////////////////
+
+The find method looks for a single (first) element that makes the function return true.
+
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+let user = users.find(item => item.id == 1);
+
+alert(user.name); // John
+
+
+//////////////////////////////////////////////////////////////
+
+If there may be many, we can use arr.filter(fn).
+
+The syntax is similar to find, but filter continues to iterate for all array elements even if true is already returned:
+
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+// returns array of the first two users
+let someUsers = users.filter(item => item.id < 3);
+
+alert(someUsers.length); // 2
+
+
+//////////////////////////////////////////////////////////////
