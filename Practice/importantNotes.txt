@@ -758,3 +758,188 @@ function count(obj) {
 //////////////////////////////////////////////////////////////
 
 
+let user = {
+  name: "John",
+  age: 30
+};
+
+// loop over keys-and-values
+for (let [key, value] of Object.entries(user)) {
+  alert(`${key}:${value}`); // name:John, then age:30
+}
+
+
+//////////////////////////////////////////////////////////////
+
+If we want not just to get first values, but also to gather all that follows – we can add one more parameter that gets “the rest” using three dots "...":
+
+let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert(name1); // Julius
+alert(name2); // Caesar
+
+// Note that type of `rest` is Array.
+alert(rest[0]); // Consul
+alert(rest[1]); // of the Roman Republic
+alert(rest.length); // 2
+
+
+//////////////////////////////////////////////////////////////
+
+If we want a “default” value to replace the missing one, we can provide it using =:
+
+ 
+
+// default values
+let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+
+alert(name);    // Julius (from array)
+alert(surname); // Anonymous (default used)
+
+//////////////////////////////////////////////////////////////
+
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+let {title, width, height} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+let options = {
+  title: "Menu"
+};
+
+let {width = 100, height = 200, title} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+let options = {
+  title: "Menu",
+  height: 200,
+  width: 100
+};
+
+// title = property named title
+// rest = object with the rest of properties
+let {title, ...rest} = options;
+
+// now title="Menu", rest={height: 200, width: 100}
+alert(rest.height);  // 200
+alert(rest.width);   // 100
+
+
+//////////////////////////////////////////////////////////////
+
+Write the destructuring assignment that reads:
+
+name property into the variable name.
+years property into the variable age.
+isAdmin property into the variable isAdmin (false, if no such property)
+
+let user = {
+  name: "John",
+  years: 30
+};
+
+let {name, years: age, isAdmin = false} = user;
+console.log(name);
+console.log(age);
+console.log(isAdmin);
+
+
+//////////////////////////////////////////////////////////////
+
+let student = {
+  name: 'John',
+  age: 30,
+  isAdmin: false,
+  courses: ['html', 'css', 'js'],
+  wife: null
+};
+
+let json = JSON.stringify(student);
+
+alert(typeof json); // we've got a string!
+
+
+//////////////////////////////////////////////////////////////
+
+JSON.stringify can be applied to primitives as well.
+
+Natively supported JSON types are:
+
+Objects { ... }
+Arrays [ ... ]
+Primitives:
+strings,
+numbers,
+boolean values true/false,
+null.
+For instance:
+
+ // a number in JSON is just a number
+alert( JSON.stringify(1) ) // 1
+
+// a string in JSON is still a string, but double-quoted
+alert( JSON.stringify('test') ) // "test"
+
+alert( JSON.stringify(true) ); // true
+
+alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  sayHi() { // ignored
+    alert("Hello");
+  },
+  [Symbol("id")]: 123, // ignored
+  something: undefined // ignored
+};
+
+alert( JSON.stringify(user) ); // {} (empty object)
+
+
+//////////////////////////////////////////////////////////////
+
+
+let room = {
+  number: 23
+};
+
+let meetup = {
+  title: "Conference",
+  participants: ["john", "ann"]
+};
+
+meetup.place = room;       // meetup references room
+room.occupiedBy = meetup; // room references meetup
+
+JSON.stringify(meetup); // Error: Converting circular structure to JSON
+
+
+//////////////////////////////////////////////////////////////
+
+
+
