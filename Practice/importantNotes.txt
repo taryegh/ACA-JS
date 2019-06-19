@@ -1039,5 +1039,225 @@ alert( JSON.stringify(descriptor, null, 2 ) );
   //////////////////////////////////////////////////////////////
   
   
-  
-  
+  Normally, a built-in toString for objects is non-enumerable, it does not show up in for..in. But if we add toString of our own, then by default it shows up in for..in, like this:
+
+ let user = {
+  name: "John",
+  toString() {
+    return this.name;
+  }
+};
+
+// By default, both our properties are listed:
+for (let key in user) alert(key); // name, toString
+
+
+If we don’t like it, then we can set enumerable:false. Then it won’t appear in for..in loop, just like the built-in one:
+
+
+let user = {
+  name: "John",
+  toString() {
+    return this.name;
+  }
+};
+
+Object.defineProperty(user, "toString", {
+  enumerable: false
+});
+
+// Now our toString disappears:
+for (let key in user) alert(key); // name
+
+
+Non-enumerable properties are also excluded from Object.keys:
+
+alert(Object.keys(user)); // name
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI');
+
+alert( JSON.stringify(descriptor, null, 2 ) );
+
+//////////////////////////////////////////////////////////////
+
+Making a property non-configurable is a one-way road. We cannot change it back, because defineProperty doesn’t work on non-configurable properties.
+
+Here we are making user.name a “forever sealed” constant:
+
+ 
+So, a programmer is unable to change the value of Math.PI or overwrite it.
+
+Math.PI = 3; // Error
+
+// delete Math.PI won't work either
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+Making a property non-configurable is a one-way road. We cannot change it back, because defineProperty doesn’t work on non-configurable properties.
+
+Here we are making user.name a “forever sealed” constant:
+
+
+let user = { };
+
+Object.defineProperty(user, "name", {
+  value: "John",
+  writable: false,
+  configurable: false
+});
+
+// won't be able to change user.name or its flags
+// all this won't work:
+//   user.name = "Pete"
+//   delete user.name
+//   defineProperty(user, "name", ...)
+Object.defineProperty(user, "name", {writable: true}); // Error
+
+
+//////////////////////////////////////////////////////////////
+
+
+There’s a method Object.defineProperties(obj, descriptors) that allows to define many properties at once.
+
+The syntax is:
+
+Object.defineProperties(obj, {
+  prop1: descriptor1,
+  prop2: descriptor2
+  // ...
+});
+For instance:
+
+Object.defineProperties(user, {
+  name: { value: "John", writable: false },
+  surname: { value: "Smith", writable: false },
+  // ...
+});
+So, we can set many properties at once.
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  name: "John",
+  surname: "Smith",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+};
+
+// set fullName is executed with the given value.
+user.fullName = "Alice Cooper";
+
+alert(user.name); // Alice
+alert(user.surname); // Cooper
+
+
+
+//////////////////////////////////////////////////////////////
+
+let user = {
+  get name() {
+    return this._name;
+  },
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short, need at least 4 characters");
+      return;
+    }
+    this._name = value;
+  }
+};
+
+user.name = "Pete";
+alert(user.name); // Pete
+
+user.name = ""; // Name is too short...
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+function User(name, birthday) {
+  this.name = name;
+  this.birthday = birthday;
+
+  // age is calculated from the current date and birthday
+  Object.defineProperty(this, "age", {
+    get() {
+      let todayYear = new Date().getFullYear();
+      return todayYear - this.birthday.getFullYear();
+    }
+  });
+}
+
+let john = new User("John", new Date(1992, 6, 1));
+
+alert( john.birthday ); // birthday is available
+alert( john.age );      // ...as well as the age
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true
+};
+let rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal; // (*)
+
+// we can find both properties in rabbit now:
+alert( rabbit.eats ); // true (**)
+alert( rabbit.jumps ); // true
+Here the line (*) sets animal to be a prototype of rabbit.
+
+Then, when alert tries to read property rabbit.eats (**), it’s not in rabbit, so JavaScript follows the [[Prototype]] reference and finds it in animal (look from the bottom up):
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true,
+  walk() {
+    /* this method won't be used by rabbit */
+  }
+};
+
+let rabbit = {
+  __proto__: animal
+};
+
+rabbit.walk = function() {
+  alert("Rabbit! Bounce-bounce!");
+};
+
+rabbit.walk(); // Rabbit! Bounce-bounce!
+From now on, rabbit.walk() call finds the method immediately in the object and executes it, without using the prototype:
+
+
+//////////////////////////////////////////////////////////////
