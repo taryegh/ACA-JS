@@ -1261,3 +1261,52 @@ From now on, rabbit.walk() call finds the method immediately in the object and e
 
 
 //////////////////////////////////////////////////////////////
+
+// animal has methods
+let animal = {
+  walk() {
+    if (!this.isSleeping) {
+      alert(`I walk`);
+    }
+  },
+  sleep() {
+    this.isSleeping = true;
+  }
+};
+
+let rabbit = {
+  name: "White Rabbit",
+  __proto__: animal
+};
+
+// modifies rabbit.isSleeping
+rabbit.sleep();
+
+alert(rabbit.isSleeping); // true
+alert(animal.isSleeping); // undefined (no such property in the prototype)
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true
+};
+
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+};
+
+for(let prop in rabbit) {
+  let isOwn = rabbit.hasOwnProperty(prop);
+
+  if (isOwn) {
+    alert(`Our: ${prop}`); // Our: jumps
+  } else {
+    alert(`Inherited: ${prop}`); // Inherited: eats
+  }
+}
+
+//////////////////////////////////////////////////////////////
