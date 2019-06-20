@@ -1310,3 +1310,281 @@ for(let prop in rabbit) {
 }
 
 //////////////////////////////////////////////////////////////
+
+F.prototype is a regular property named "prototype" on F.
+
+let animal = {
+  eats: true
+};
+
+function Rabbit(name) {
+  this.name = name;
+}
+
+Rabbit.prototype = animal;
+
+let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+alert( rabbit.eats ); // true
+
+
+Setting Rabbit.prototype = animal literally states the following: "When a new Rabbit is created, assign its [[Prototype]] to animal".
+
+//////////////////////////////////////////////////////////////
+
+F.prototype property is only used when new F is called, it assigns [[Prototype]] of the new object. After that, there’s no connection between F.prototype and the new object. Think of it as a “one-time gift”.
+
+If, after the creation, F.prototype property changes (F.prototype = <another object>), then new objects created by new F will have another object as [[Prototype]], but already existing objects keep the old one.
+
+//////////////////////////////////////////////////////////////
+
+Every function has the "prototype" property even if we don’t supply it.
+
+The default "prototype" is an object with the only property constructor that points back to the function itself.
+
+Like this:
+
+function Rabbit() {}
+
+/* default prototype
+Rabbit.prototype = { constructor: Rabbit };
+*/
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit() {}
+// by default:
+// Rabbit.prototype = { constructor: Rabbit }
+
+alert( Rabbit.prototype.constructor == Rabbit ); // true
+
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit() {}
+// by default:
+// Rabbit.prototype = { constructor: Rabbit }
+
+let rabbit = new Rabbit(); // inherits from {constructor: Rabbit}
+
+alert(rabbit.constructor == Rabbit); // true (from prototype)
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit(name) {
+  this.name = name;
+  alert(name);
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+let rabbit2 = new rabbit.constructor("Black Rabbit");
+That’s handy when we have an object, don’t know which constructor was used for it (e.g. it comes from a 3rd party library), and we need to create another one of the same kind.
+
+
+//////////////////////////////////////////////////////////////
+
+function Rabbit() {}
+Rabbit.prototype = {
+  jumps: true
+};
+
+let rabbit = new Rabbit();
+alert(rabbit.constructor === Rabbit); // false
+
+
+So, to keep the right "constructor" we can choose to add/remove properties to the default "prototype" instead of overwriting it as a whole:
+
+function Rabbit() {}
+
+// Not overwrite Rabbit.prototype totally
+// just add to it
+Rabbit.prototype.jumps = true
+// the default Rabbit.prototype.constructor is preserved
+
+
+
+Or, alternatively, recreate the constructor property manually:
+
+
+Rabbit.prototype = {
+  jumps: true,
+  constructor: Rabbit
+};
+
+// now constructor is also correct, because we added it
+
+//////////////////////////////////////////////////////////////
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+alert( rabbit.eats ); // true
+We added one more string (emphasized), what alert shows now?
+
+
+
+
+
+
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype = {};
+
+alert( rabbit.eats ); // true
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype.eats = false;
+
+alert( rabbit.eats ); // false
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+delete Rabbit.prototype.eats;
+
+alert( rabbit.eats ); // undefined
+
+
+
+true.
+
+The assignment to Rabbit.prototype sets up [[Prototype]] for new objects, but it does not affect the existing ones.
+
+false.
+
+Objects are assigned by reference. The object from Rabbit.prototype is not duplicated, it’s still a single object is referenced both by Rabbit.prototype and by the [[Prototype]] of rabbit.
+
+So when we change its content through one reference, it is visible through the other one.
+
+true.
+
+All delete operations are applied directly to the object. Here delete rabbit.eats tries to remove eats property from rabbit, but it doesn’t have it. So the operation won’t have any effect.
+
+undefined.
+
+The property eats is deleted from the prototype, it doesn’t exist any more.
+
+
+//////////////////////////////////////////////////////////////
+
+Imagine, we have an arbitrary object obj, created by a constructor function – we don’t know which one, but we’d like to create a new object using it.
+
+Can we do it like that?
+
+let obj2 = new obj.constructor(); // yes we can
+
+//////////////////////////////////////////////////////////////
+
+
+When new Object() is called (or a literal object {...} is created), the [[Prototype]] of it is set to Object.prototype according to the rule that we discussed in the previous chapter:
+
+So then when obj.toString() is called the method is taken from Object.prototype.
+
+let obj = {};
+
+alert(obj.__proto__ === Object.prototype); // true
+// obj.toString === obj.__proto__.toString == Object.prototype.toString
+
+
+//////////////////////////////////////////////////////////////
+
+
+Please note that there is no additional [[Prototype]] in the chain above Object.prototype:
+
+ alert(Object.prototype.__proto__); // null
+ 
+ 
+ //////////////////////////////////////////////////////////////
+ 
+ By specification, all of the built-in prototypes have Object.prototype on the top. Sometimes people say that “everything inherits from objects”.
+ 
+ 
+//////////////////////////////////////////////////////////////
+ 
+ let arr = [1, 2, 3];
+
+// it inherits from Array.prototype?
+alert( arr.__proto__ === Array.prototype ); // true
+
+// then from Object.prototype?
+alert( arr.__proto__.__proto__ === Object.prototype ); // true
+
+// and null on the top.
+alert( arr.__proto__.__proto__.__proto__ ); // null
+
+
+//////////////////////////////////////////////////////////////
+
+function f() {}
+
+alert(f.__proto__ == Function.prototype); // true
+alert(f.__proto__.__proto__ == Object.prototype); // true, inherit from objects
+
+
+//////////////////////////////////////////////////////////////
+
+
+Values null and undefined have no object wrappers
+Special values null and undefined stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes too.
+
+
+
+//////////////////////////////////////////////////////////////
+
+String.prototype.show = function() {
+  alert(this);
+};
+
+"BOOM!".show(); // BOOM!
+
+During the process of development, we may have ideas for new built-in methods we’d like to have, and we may be tempted to add them to native prototypes. But that is generally a bad idea.
+
+
+
+//////////////////////////////////////////////////////////////
+
+Add to the prototype of all functions the method defer(ms), that runs the function after ms milliseconds.
+
+After you do it, such code should work:
+
+Function.prototype.defer = function(ms) {
+  setTimeout(this, ms);
+};
+
+function f() {
+  alert("Hello!");
+}
+
+f.defer(1000); // shows "Hello!" after 1 sec
+
+//////////////////////////////////////////////////////////////
