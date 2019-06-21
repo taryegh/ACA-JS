@@ -1608,4 +1608,169 @@ Object.setPrototypeOf(rabbit, {}); // change the prototype of rabbit to {}
 //////////////////////////////////////////////////////////////
 
 
+class User {
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHi() {
+    alert(this.name);
+  }
+
+}
+
+// Usage:
+let user = new User("John");
+user.sayHi();
+
+
+//////////////////////////////////////////////////////////////
+
+class User {
+
+  constructor(name) {
+    // invokes the setter
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short.");
+      return;
+    }
+    this._name = value;
+  }
+
+}
+
+let user = new User("John");
+alert(user.name); // John
+
+user = new User(""); // Name too short.
+
+//////////////////////////////////////////////////////////////
+
+
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+  run(speed) {
+    this.speed += speed;
+    alert(`${this.name} runs with speed ${this.speed}.`);
+  }
+  stop() {
+    this.speed = 0;
+    alert(`${this.name} stopped.`);
+  }
+}
+
+// Inherit from Animal by specifying "extends Animal"
+class Rabbit extends Animal {
+  hide() {
+    alert(`${this.name} hides!`);
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.hide(); // White Rabbit hides!
+
+
+//////////////////////////////////////////////////////////////
+
+
+usually we don’t want to totally replace a parent method, but rather to build on top of it, tweak or extend its functionality. We do something in our method, but call the parent method before/after it or in the process.
+
+Classes provide "super" keyword for that.
+
+super.method(...) to call a parent method.
+super(...) to call a parent constructor (inside our constructor only).
+For instance, let our rabbit autohide when stopped:
+
+
+
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  run(speed) {
+    this.speed += speed;
+    alert(`${this.name} runs with speed ${this.speed}.`);
+  }
+
+  stop() {
+    this.speed = 0;
+    alert(`${this.name} stopped.`);
+  }
+
+}
+
+class Rabbit extends Animal {
+  hide() {
+    alert(`${this.name} hides!`);
+  }
+
+  stop() {
+    super.stop(); // call parent stop
+    this.hide(); // and then hide
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.stop(); // White Rabbit stopped. White rabbit hides!
+
+
+
+Now Rabbit has the stop method that calls the parent super.stop() in the process.
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  // ...
+}
+
+class Rabbit extends Animal {
+
+  constructor(name, earLength) {
+    super(name);
+    this.earLength = earLength;
+  }
+
+  // ...
+}
+
+// now fine
+let rabbit = new Rabbit("White Rabbit", 10);
+alert(rabbit.name); // White Rabbit
+alert(rabbit.earLength); // 10
+
+
+//////////////////////////////////////////////////////////////
+
+
 
