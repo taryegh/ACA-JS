@@ -1,5 +1,17 @@
 'use strict';
 
+
+// Write classes: Person, Student, Staff.
+// Person should have: firstName, lastName, gender, age. It should have appropriate getters and setters.
+// It should have a method: toString().
+// Student is inherited from Person. It should have program(array of strings), year, fee.
+// It should have appropriate getters and setters.
+// It should have method: passExam(program, grade). Student should contain the data about its programs and exams. passExam will update that data, so if student passed all the exams(grade is great or equal to 50), its year should be increased by one.
+// It should have a toString method.
+// Teacher is inherited from Person. It should have program(string), pay. It should have appropriate getters and setters.
+// It should have a toString method.
+
+
 // Class Person
 class Person {
   constructor(firstName, lastName, gender, age) {
