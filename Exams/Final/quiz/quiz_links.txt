@@ -1,3 +1,6 @@
 http://davidshariff.com/js-quiz/#q=1
 
 
+https://www.fullstack.cafe/blog/advanced-javascript-interview-questions
+
+
