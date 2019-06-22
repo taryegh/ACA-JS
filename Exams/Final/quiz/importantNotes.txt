@@ -1,0 +1,1773 @@
+//////////////////////////////////////////////////////////////
+There are 7 basic data types in JavaScript.
+
+- number for numbers of any kind: integer or floating-point.
+- string for strings. A string may have one or more characters, there’s no separate single-character type.
+- boolean for true/false.
+- null for unknown values – a standalone type that has a single value null.
+- undefined for unassigned values – a standalone type that has a single value undefined.
+- object for more complex data structures.
+- symbol for unique identifiers.
+
+
+
+//////////////////////////////////////////////////////////////
+
+typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+
+
+
+//////////////////////////////////////////////////////////////
+
+typeof Number
+"function"
+
+typeof Number()
+"number"
+
+typeof Object
+"function"
+
+typeof Function
+"function"
+
+typeof String
+"function"
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+alert( Number("   123   ") ); // 123
+alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number(true) );        // 1
+alert( Number(false) );       // 0
+Please note that null and undefined behave differently here: null becomes zero while undefined becomes NaN.
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+Almost all mathematical operations convert values to numbers. A notable exception is addition +. If one of the added values is a string, the other one is also converted to a string.
+
+Then, it concatenates (joins) them:
+
+alert( 1 + '2' ); // '12' (string to the right)
+alert( '1' + 2 ); // '12' (string to the left)
+
+This only happens when at least one of the arguments is a string. Otherwise, values are converted to numbers.
+
+
+//////////////////////////////////////////////////////////////
+
+
+ToNumber
+
+Value -	      Becomes…
+undefined	    NaN
+null	        0
+true / false	1 / 0
+string	The string is read “as is”, whitespaces from both sides are ignored. An empty string becomes 0. An error gives NaN.
+
+
+//////////////////////////////////////////////////////////////
+
+
+ToBoolean – Occurs in logical operations. Can be performed with Boolean(value).
+Value	                        Becomes…
+0, null, undefined, NaN, ""	  false
+any other value	              true
+
+
+//////////////////////////////////////////////////////////////
+
+
+"" + 1 + 0 // '10' ok
+"" - 1 + 0 // -1 ok
+true + false // 1 ok
+6 / "3" // 2 ok
+"2" * "3" // 6 ok
+4 + 5 + "px" // '9px' ok
+"$" + 4 + 5 // '$45' ok
+"4" - 2 // 2 ok
+"4px" - 2 // NAN ok
+7 / 0 // infinity ok
+"  -9  " + 5 // ' -9 5' ok
+"  -9  " - 5 // -14 ok
+null + 1 // 1 (null becomes 0)
+undefined + 1 // NAN (undefined becomes NAN)
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+When comparing values of different types, JavaScript converts the values to numbers.
+
+For example:
+
+alert( '2' > 1 ); // true, string '2' becomes a number 2
+alert( '01' == 1 ); // true, string '01' becomes a number 1
+
+
+For boolean values, true becomes 1 and false becomes 0.
+
+For example:
+
+alert( true == 1 ); // true
+alert( false == 0 ); // true
+
+//////////////////////////////////////////////////////////////
+
+
+
+It is possible that at the same time:
+
+Two values are equal.
+One of them is true as a boolean and the other one is false as a boolean.
+For example:
+
+ let a = 0;
+alert( Boolean(a) ); // false
+
+let b = "0";
+alert( Boolean(b) ); // true
+
+alert(a == b); // true!
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+What will be the result for these expressions?
+
+5 > 4 // true
+"apple" > "pineapple" // false
+"2" > "12" // true
+undefined == null // true
+undefined === null // false
+null == "\n0\n" // false
+null === +"\n0\n" // false
+
+
+//////////////////////////////////////////////////////////////
+
+
+alert - shows a message.
+prompt - shows a message asking the user to input text. It returns the text or, if CANCEL or Esc is clicked, null.
+confirm - shows a message and waits for the user to press “OK” or “CANCEL”. It returns true for OK and false for CANCEL/Esc.
+
+//////////////////////////////////////////////////////////////
+
+[] + {}
+"[object Object]"
+
+[] + []
+""
+
+[] + 3
+"3"
+
+{} + ""
+0
+
+{} + '1'
+1
+
+{} + 1
+1
+
+"" + 7
+"7"
+
+null + {}
+"null[object Object]"
+
+null + undefined
+NaN
+
+'' + NaN
+"NaN"
+
+{} * 2
+VM385:1 Uncaught SyntaxError: Unexpected token *
+
+{} -1
+-1
+
+[] + 1
+"1"
+
+[] - 1
+-1
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+What is the code below going to output?
+
+alert( null || 2 || undefined );
+
+The answer is 2, that’s the first truthy value.
+ alert( null || 2 || undefined );
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+What will the code below output?
+
+alert( alert(1) || 2 || alert(3) );
+
+
+The answer: first 1, then 2.
+
+alert( alert(1) || 2 || alert(3) );
+The call to alert does not return a value. Or, in other words, it returns undefined.
+
+The first OR || evaluates it’s left operand alert(1). That shows the first message with 1.
+The alert returns undefined, so OR goes on to the second operand searching for a truthy value.
+The second operand 2 is truthy, so the execution is halted, 2 is returned and then shown by the outer alert.
+There will be no 3, because the evaluation does not reach alert(3).
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+What is this code going to show?
+
+alert( 1 && null && 2 );
+
+
+What will this code show?
+
+alert( alert(1) && alert(2) );
+
+
+//////////////////////////////////////////////////////////////
+
+
+What will the result be?
+
+alert( null || 2 && 3 || 4 ); // 3
+
+
+//////////////////////////////////////////////////////////////
+
+Cloning objects - iteration
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+
+let clone = {};
+
+for (let key in user) {
+  clone[key] = user[key];
+}
+
+//////////////////////////////////////////////////////////////
+
+Cloning objects - Object.assign
+
+let user = { name: "John" };
+
+let permissions1 = { canView: true, other: false };
+let permissions2 = { canEdit: true };
+undefined
+Object.assign(user, permissions1, permissions2);
+
+
+//////////////////////////////////////////////////////////////
+
+
+We also can use Object.assign to replace the loop for simple cloning:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = Object.assign({}, user);
+
+It copies all properties of user into the empty object and returns it. Actually, the same as the loop, but shorter.
+
+//////////////////////////////////////////////////////////////
+
+// Write the code, one line for each action:
+
+// Create an empty object user.
+// Add the property name with the value John.
+// Add the property surname with the value Smith.
+// Change the value of the name to Pete.
+// Remove the property name from the object.
+
+let user = {};
+user.name = 'John';
+user.surname = 'Smith';
+user.name = 'Pete';
+delete user.name;
+
+
+//////////////////////////////////////////////////////////////
+
+
+Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+
+let schedule = {};
+
+function isEmpty(obj) {
+  let k = 0;
+  for (let key in obj) {
+    k++;
+  }
+
+  return k === 0 ? true : false;
+}
+console.log(isEmpty(schedule));
+
+// or
+
+function isEmpty(obj) {
+  for (let key in obj) {
+    // if the loop has started, there is a property
+    return false;
+  }
+  return true;
+}
+
+
+//////////////////////////////////////////////////////////////
+
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+
+let sum = 0;
+for (let key in salaries) {
+  sum += salaries[key];
+}
+console.log(sum);
+
+
+//////////////////////////////////////////////////////////////
+
+
+Symbols are guaranteed to be unique. Even if we create many symbols with the same description, they are different values. The description is just a label that doesn’t affect anything.
+
+let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+alert(id1 == id2); // false
+
+
+//////////////////////////////////////////////////////////////
+
+Symbols allow us to create “hidden” properties of an object, that no other part of code can occasionally access or overwrite.
+
+Most values in JavaScript support implicit conversion to a string. For instance, we can alert almost any value, and it will work. Symbols are special. They don’t auto-convert.
+
+For instance, this alert will show an error:
+
+ 
+let id = Symbol("id");
+alert(id); // TypeError: Cannot convert a Symbol value to a string
+
+If we really want to show a symbol, we need to call .toString() on it, like here:
+
+let id = Symbol("id");
+alert(id.toString()); // Symbol(id), now it works
+
+Or get symbol.description property to get the description only:
+
+ 
+
+let id = Symbol("id");
+alert(id.description); // id
+
+
+
+//////////////////////////////////////////////////////////////
+
+// without 'use strict'
+console.log(this); // window object
+
+function foo() {
+ console.log(this);
+}
+foo(); window object
+
+
+'use strict'
+
+console.log(this); // window object
+
+function foo() {
+ console.log(this);
+}
+foo(); // undefined
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  name: "John",
+  hi() { alert(this.name); }
+}
+
+// split getting and calling the method in two lines
+let hi = user.hi;
+hi(); // Error, because this is undefined - we loose this because of two lines.
+
+In order to keep this with variable hi, we should bind:
+
+
+let hii = user.hi.bind(user);
+console.log(hii());
+
+
+//////////////////////////////////////////////////////////////
+
+
+let obj, method;
+
+obj = {
+  go: function() { alert(this); }
+};
+
+obj.go();               // (1) [object Object]
+
+(obj.go)();             // (2) [object Object]
+
+(method = obj.go)();    // (3) undefined
+
+(obj.go || obj.stop)(); // (4) undefined
+
+
+
+//////////////////////////////////////////////////////////////
+
+There’s a ladder object that allows to go up and down:
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+  }
+};
+Now, if we need to make several calls in sequence, can do it like this:
+
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1
+Modify the code of up, down and showStep to make the calls chainable, like this:
+
+ladder.up().up().down().showStep(); // 1
+
+
+
+
+let ladder2 = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function () { // shows the current step
+    alert(this.step);
+    return this;
+  }
+};
+
+ladder2.up().up().up().down().showStep() // 2
+
+
+//////////////////////////////////////////////////////////////
+
+alert( NaN === NaN ); // false
+
+
+//////////////////////////////////////////////////////////////
+
+
+isFinite(value) converts its argument to a number and returns true if it’s a regular number, not NaN/Infinity/-Infinity:
+
+alert( isFinite("15") ); // true
+alert( isFinite("str") ); // false, because a special value: NaN
+alert( isFinite(Infinity) ); // false, because a special value: Infinity
+
+
+Sometimes isFinite is used to validate whether a string value is a regular number:
+
+let num = +prompt("Enter a number", '');
+
+// will be true unless you enter Infinity, -Infinity or not a number
+alert( isFinite(num) );
+
+
+//////////////////////////////////////////////////////////////
+
+0 === -0
+true
+
+//////////////////////////////////////////////////////////////
+
+let str = `Hello`;
+
+alert( str[1000] ); // undefined
+alert( str.charAt(1000) ); // '' (an empty string)
+
+
+
+We can also iterate over characters using for..of:
+
+ for (let char of "Hello") {
+  alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+}
+
+
+//////////////////////////////////////////////////////////////
+
+
+let str = "stringify";
+alert( str.slice(0, 5) ); // 'strin', the substring from 0 to 5 (not including 5)
+
+
+let str = "stringify";
+alert( str.slice(2) ); // ringify, from the 2nd position till the end
+
+//////////////////////////////////////////////////////////////
+str.substring(start [, end])
+Returns the part of the string between start and end.
+
+let str = "stringify";
+
+// these are same for substring
+alert( str.substring(2, 6) ); // "ring"
+alert( str.substring(6, 2) ); // "ring"
+
+
+alert( str.slice(2, 6) ); // "ring" (the same)
+alert( str.slice(6, 2) ); // "" (an empty string)
+
+
+//////////////////////////////////////////////////////////////
+
+
+str.substr(start [, length])
+Returns the part of the string from start, with the given length.
+
+let str = "stringify";
+alert( str.substr(2, 4) ); // ring, from the 2nd position get 4 characters
+
+
+The first argument may be negative, to count from the end:
+
+let str = "stringify";
+alert( str.substr(-4, 2) ); // gi, from the 4th position get 2 characters
+
+//////////////////////////////////////////////////////////////
+
+["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  alert(`${item} is at index ${index} in ${array}`);
+});
+
+//////////////////////////////////////////////////////////////
+
+let arr = [1, 0, false];
+
+alert( arr.indexOf(0) ); // 1
+alert( arr.indexOf(false) ); // 2
+alert( arr.indexOf(null) ); // -1
+
+alert( arr.includes(1) ); // true
+
+
+const arr = [NaN];
+alert( arr.indexOf(NaN) ); // -1 (should be 0, but === equality doesn't work for NaN)
+alert( arr.includes(NaN) );// true (correct)
+
+//////////////////////////////////////////////////////////////
+
+The find method looks for a single (first) element that makes the function return true.
+
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+let user = users.find(item => item.id == 1);
+
+alert(user.name); // John
+
+
+//////////////////////////////////////////////////////////////
+
+If there may be many, we can use arr.filter(fn).
+
+The syntax is similar to find, but filter continues to iterate for all array elements even if true is already returned:
+
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+// returns array of the first two users
+let someUsers = users.filter(item => item.id < 3);
+
+alert(someUsers.length); // 2
+
+
+//////////////////////////////////////////////////////////////
+
+let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length);
+alert(lengths); // 5,7,6
+
+
+//////////////////////////////////////////////////////////////
+
+
+A cheatsheet of array methods:
+
+To add/remove elements:
+
+push(...items) – adds items to the end,
+pop() – extracts an item from the end,
+shift() – extracts an item from the beginning,
+unshift(...items) – adds items to the beginning.
+splice(pos, deleteCount, ...items) – at index pos delete deleteCount elements and insert items.
+slice(start, end) – creates a new array, copies elements from position start till end (not inclusive) into it.
+concat(...items) – returns a new array: copies all members of the current one and adds items to it. If any of items is an array, then its elements are taken.
+
+
+
+To search among elements:
+
+indexOf/lastIndexOf(item, pos) – look for item starting from position pos, return the index or -1 if not found.
+includes(value) – returns true if the array has value, otherwise false.
+find/filter(func) – filter elements through the function, return first/all values that make it return true.
+findIndex is like find, but returns the index instead of a value.
+To iterate over elements:
+
+forEach(func) – calls func for every element, does not return anything.
+To transform the array:
+
+map(func) – creates a new array from results of calling func for every element.
+sort(func) – sorts the array in-place, then returns it.
+reverse() – reverses the array in-place, then returns it.
+split/join – convert a string to array and back.
+reduce(func, initial) – calculate a single value over the array by calling func for each element and passing an intermediate result between the calls.
+
+
+
+Additionally:
+
+Array.isArray(arr) checks arr for being an array.
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let arrayLike = {
+  0: "Hello",
+  1: "World",
+  length: 2
+};
+
+let arr = Array.from(arrayLike); // (*)
+alert(arr.pop()); // World (method works)
+
+
+//////////////////////////////////////////////////////////////
+
+Object.keys(obj) – returns an array of keys.
+Object.values(obj) – returns an array of values.
+Object.entries(obj) – returns an array of [key, value] pairs.
+
+Object.keys(user) = ["name", "age"];
+Object.values(user) = ["John", 30];
+Object.entries(user) = [ ["name","John"], ["age",30] ];
+
+
+
+
+Write a function count(obj) that returns the number of properties in the object:
+
+let user = {
+  name: 'John',
+  age: 30
+};
+
+alert( count(user) ); // 2
+
+
+function count(obj) {
+  return Object.keys(obj).length;
+}
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+// loop over keys-and-values
+for (let [key, value] of Object.entries(user)) {
+  alert(`${key}:${value}`); // name:John, then age:30
+}
+
+
+//////////////////////////////////////////////////////////////
+
+If we want not just to get first values, but also to gather all that follows – we can add one more parameter that gets “the rest” using three dots "...":
+
+let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert(name1); // Julius
+alert(name2); // Caesar
+
+// Note that type of `rest` is Array.
+alert(rest[0]); // Consul
+alert(rest[1]); // of the Roman Republic
+alert(rest.length); // 2
+
+
+//////////////////////////////////////////////////////////////
+
+If we want a “default” value to replace the missing one, we can provide it using =:
+
+ 
+
+// default values
+let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+
+alert(name);    // Julius (from array)
+alert(surname); // Anonymous (default used)
+
+//////////////////////////////////////////////////////////////
+
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+let {title, width, height} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+let options = {
+  title: "Menu"
+};
+
+let {width = 100, height = 200, title} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+let options = {
+  title: "Menu",
+  height: 200,
+  width: 100
+};
+
+// title = property named title
+// rest = object with the rest of properties
+let {title, ...rest} = options;
+
+// now title="Menu", rest={height: 200, width: 100}
+alert(rest.height);  // 200
+alert(rest.width);   // 100
+
+
+//////////////////////////////////////////////////////////////
+
+Write the destructuring assignment that reads:
+
+name property into the variable name.
+years property into the variable age.
+isAdmin property into the variable isAdmin (false, if no such property)
+
+let user = {
+  name: "John",
+  years: 30
+};
+
+let {name, years: age, isAdmin = false} = user;
+console.log(name);
+console.log(age);
+console.log(isAdmin);
+
+
+//////////////////////////////////////////////////////////////
+
+let student = {
+  name: 'John',
+  age: 30,
+  isAdmin: false,
+  courses: ['html', 'css', 'js'],
+  wife: null
+};
+
+let json = JSON.stringify(student);
+
+alert(typeof json); // we've got a string!
+
+
+//////////////////////////////////////////////////////////////
+
+JSON.stringify can be applied to primitives as well.
+
+Natively supported JSON types are:
+
+Objects { ... }
+Arrays [ ... ]
+Primitives:
+strings,
+numbers,
+boolean values true/false,
+null.
+For instance:
+
+ // a number in JSON is just a number
+alert( JSON.stringify(1) ) // 1
+
+// a string in JSON is still a string, but double-quoted
+alert( JSON.stringify('test') ) // "test"
+
+alert( JSON.stringify(true) ); // true
+
+alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  sayHi() { // ignored
+    alert("Hello");
+  },
+  [Symbol("id")]: 123, // ignored
+  something: undefined // ignored
+};
+
+alert( JSON.stringify(user) ); // {} (empty object)
+
+
+//////////////////////////////////////////////////////////////
+
+
+let room = {
+  number: 23
+};
+
+let meetup = {
+  title: "Conference",
+  participants: ["john", "ann"]
+};
+
+meetup.place = room;       // meetup references room
+room.occupiedBy = meetup; // room references meetup
+
+JSON.stringify(meetup); // Error: Converting circular structure to JSON
+
+
+//////////////////////////////////////////////////////////////
+
+let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
+
+//////////////////////////////////////////////////////////////
+
+
+
+let user = {
+  name: "John"
+};
+
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+alert( JSON.stringify(descriptor, null, 2 ) );
+/* property descriptor:
+{
+  "value": "John",
+  "writable": true,
+  "enumerable": true,
+  "configurable": true
+}
+*/
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+	name: 'Taron',
+    surname: 'Yeghoyan',
+    age: 27,
+    gender: 'male',
+}
+
+
+let prop = Object.getOwnPropertyDescriptor(user, 'name');
+
+alert(JSON.stringify(prop, null, 2));
+
+
+//////////////////////////////////////////////////////////////
+
+To change the flags, we can use Object.defineProperty.
+
+The syntax is:
+
+Object.defineProperty(obj, propertyName, descriptor)
+
+
+//////////////////////////////////////////////////////////////
+
+If the property exists, defineProperty updates its flags. Otherwise, it creates the property with the given value and flags; in that case, if a flag is not supplied, it is assumed false.
+
+For instance, here a property name is created with all falsy flags:
+
+let user = {};
+
+Object.defineProperty(user, "name", {
+  value: "John"
+});
+
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+alert( JSON.stringify(descriptor, null, 2 ) );
+/*
+{
+  "value": "John",
+  "writable": false,
+  "enumerable": false,
+  "configurable": false
+}
+ */
+ 
+ 
+ //////////////////////////////////////////////////////////////
+ 
+ let user = {};
+
+Object.defineProperty(user, "name", {
+  value: "John"
+});
+
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+alert( JSON.stringify(descriptor, null, 2 ) );
+/*
+{
+  "value": "John",
+  "writable": false,
+  "enumerable": false,
+  "configurable": false
+}
+ */
+ 
+ 
+  //////////////////////////////////////////////////////////////
+  
+  
+  Normally, a built-in toString for objects is non-enumerable, it does not show up in for..in. But if we add toString of our own, then by default it shows up in for..in, like this:
+
+ let user = {
+  name: "John",
+  toString() {
+    return this.name;
+  }
+};
+
+// By default, both our properties are listed:
+for (let key in user) alert(key); // name, toString
+
+
+If we don’t like it, then we can set enumerable:false. Then it won’t appear in for..in loop, just like the built-in one:
+
+
+let user = {
+  name: "John",
+  toString() {
+    return this.name;
+  }
+};
+
+Object.defineProperty(user, "toString", {
+  enumerable: false
+});
+
+// Now our toString disappears:
+for (let key in user) alert(key); // name
+
+
+Non-enumerable properties are also excluded from Object.keys:
+
+alert(Object.keys(user)); // name
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI');
+
+alert( JSON.stringify(descriptor, null, 2 ) );
+
+//////////////////////////////////////////////////////////////
+
+Making a property non-configurable is a one-way road. We cannot change it back, because defineProperty doesn’t work on non-configurable properties.
+
+Here we are making user.name a “forever sealed” constant:
+
+ 
+So, a programmer is unable to change the value of Math.PI or overwrite it.
+
+Math.PI = 3; // Error
+
+// delete Math.PI won't work either
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+Making a property non-configurable is a one-way road. We cannot change it back, because defineProperty doesn’t work on non-configurable properties.
+
+Here we are making user.name a “forever sealed” constant:
+
+
+let user = { };
+
+Object.defineProperty(user, "name", {
+  value: "John",
+  writable: false,
+  configurable: false
+});
+
+// won't be able to change user.name or its flags
+// all this won't work:
+//   user.name = "Pete"
+//   delete user.name
+//   defineProperty(user, "name", ...)
+Object.defineProperty(user, "name", {writable: true}); // Error
+
+
+//////////////////////////////////////////////////////////////
+
+
+There’s a method Object.defineProperties(obj, descriptors) that allows to define many properties at once.
+
+The syntax is:
+
+Object.defineProperties(obj, {
+  prop1: descriptor1,
+  prop2: descriptor2
+  // ...
+});
+For instance:
+
+Object.defineProperties(user, {
+  name: { value: "John", writable: false },
+  surname: { value: "Smith", writable: false },
+  // ...
+});
+So, we can set many properties at once.
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let user = {
+  name: "John",
+  surname: "Smith",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+};
+
+// set fullName is executed with the given value.
+user.fullName = "Alice Cooper";
+
+alert(user.name); // Alice
+alert(user.surname); // Cooper
+
+
+
+//////////////////////////////////////////////////////////////
+
+let user = {
+  get name() {
+    return this._name;
+  },
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short, need at least 4 characters");
+      return;
+    }
+    this._name = value;
+  }
+};
+
+user.name = "Pete";
+alert(user.name); // Pete
+
+user.name = ""; // Name is too short...
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+function User(name, birthday) {
+  this.name = name;
+  this.birthday = birthday;
+
+  // age is calculated from the current date and birthday
+  Object.defineProperty(this, "age", {
+    get() {
+      let todayYear = new Date().getFullYear();
+      return todayYear - this.birthday.getFullYear();
+    }
+  });
+}
+
+let john = new User("John", new Date(1992, 6, 1));
+
+alert( john.birthday ); // birthday is available
+alert( john.age );      // ...as well as the age
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true
+};
+let rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal; // (*)
+
+// we can find both properties in rabbit now:
+alert( rabbit.eats ); // true (**)
+alert( rabbit.jumps ); // true
+Here the line (*) sets animal to be a prototype of rabbit.
+
+Then, when alert tries to read property rabbit.eats (**), it’s not in rabbit, so JavaScript follows the [[Prototype]] reference and finds it in animal (look from the bottom up):
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true,
+  walk() {
+    /* this method won't be used by rabbit */
+  }
+};
+
+let rabbit = {
+  __proto__: animal
+};
+
+rabbit.walk = function() {
+  alert("Rabbit! Bounce-bounce!");
+};
+
+rabbit.walk(); // Rabbit! Bounce-bounce!
+From now on, rabbit.walk() call finds the method immediately in the object and executes it, without using the prototype:
+
+
+//////////////////////////////////////////////////////////////
+
+// animal has methods
+let animal = {
+  walk() {
+    if (!this.isSleeping) {
+      alert(`I walk`);
+    }
+  },
+  sleep() {
+    this.isSleeping = true;
+  }
+};
+
+let rabbit = {
+  name: "White Rabbit",
+  __proto__: animal
+};
+
+// modifies rabbit.isSleeping
+rabbit.sleep();
+
+alert(rabbit.isSleeping); // true
+alert(animal.isSleeping); // undefined (no such property in the prototype)
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+let animal = {
+  eats: true
+};
+
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+};
+
+for(let prop in rabbit) {
+  let isOwn = rabbit.hasOwnProperty(prop);
+
+  if (isOwn) {
+    alert(`Our: ${prop}`); // Our: jumps
+  } else {
+    alert(`Inherited: ${prop}`); // Inherited: eats
+  }
+}
+
+//////////////////////////////////////////////////////////////
+
+F.prototype is a regular property named "prototype" on F.
+
+let animal = {
+  eats: true
+};
+
+function Rabbit(name) {
+  this.name = name;
+}
+
+Rabbit.prototype = animal;
+
+let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+alert( rabbit.eats ); // true
+
+
+Setting Rabbit.prototype = animal literally states the following: "When a new Rabbit is created, assign its [[Prototype]] to animal".
+
+//////////////////////////////////////////////////////////////
+
+F.prototype property is only used when new F is called, it assigns [[Prototype]] of the new object. After that, there’s no connection between F.prototype and the new object. Think of it as a “one-time gift”.
+
+If, after the creation, F.prototype property changes (F.prototype = <another object>), then new objects created by new F will have another object as [[Prototype]], but already existing objects keep the old one.
+
+//////////////////////////////////////////////////////////////
+
+Every function has the "prototype" property even if we don’t supply it.
+
+The default "prototype" is an object with the only property constructor that points back to the function itself.
+
+Like this:
+
+function Rabbit() {}
+
+/* default prototype
+Rabbit.prototype = { constructor: Rabbit };
+*/
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit() {}
+// by default:
+// Rabbit.prototype = { constructor: Rabbit }
+
+alert( Rabbit.prototype.constructor == Rabbit ); // true
+
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit() {}
+// by default:
+// Rabbit.prototype = { constructor: Rabbit }
+
+let rabbit = new Rabbit(); // inherits from {constructor: Rabbit}
+
+alert(rabbit.constructor == Rabbit); // true (from prototype)
+
+//////////////////////////////////////////////////////////////
+
+
+function Rabbit(name) {
+  this.name = name;
+  alert(name);
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+let rabbit2 = new rabbit.constructor("Black Rabbit");
+That’s handy when we have an object, don’t know which constructor was used for it (e.g. it comes from a 3rd party library), and we need to create another one of the same kind.
+
+
+//////////////////////////////////////////////////////////////
+
+function Rabbit() {}
+Rabbit.prototype = {
+  jumps: true
+};
+
+let rabbit = new Rabbit();
+alert(rabbit.constructor === Rabbit); // false
+
+
+So, to keep the right "constructor" we can choose to add/remove properties to the default "prototype" instead of overwriting it as a whole:
+
+function Rabbit() {}
+
+// Not overwrite Rabbit.prototype totally
+// just add to it
+Rabbit.prototype.jumps = true
+// the default Rabbit.prototype.constructor is preserved
+
+
+
+Or, alternatively, recreate the constructor property manually:
+
+
+Rabbit.prototype = {
+  jumps: true,
+  constructor: Rabbit
+};
+
+// now constructor is also correct, because we added it
+
+//////////////////////////////////////////////////////////////
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+alert( rabbit.eats ); // true
+We added one more string (emphasized), what alert shows now?
+
+
+
+
+
+
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype = {};
+
+alert( rabbit.eats ); // true
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype.eats = false;
+
+alert( rabbit.eats ); // false
+
+
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+delete Rabbit.prototype.eats;
+
+alert( rabbit.eats ); // undefined
+
+
+
+true.
+
+The assignment to Rabbit.prototype sets up [[Prototype]] for new objects, but it does not affect the existing ones.
+
+false.
+
+Objects are assigned by reference. The object from Rabbit.prototype is not duplicated, it’s still a single object is referenced both by Rabbit.prototype and by the [[Prototype]] of rabbit.
+
+So when we change its content through one reference, it is visible through the other one.
+
+true.
+
+All delete operations are applied directly to the object. Here delete rabbit.eats tries to remove eats property from rabbit, but it doesn’t have it. So the operation won’t have any effect.
+
+undefined.
+
+The property eats is deleted from the prototype, it doesn’t exist any more.
+
+
+//////////////////////////////////////////////////////////////
+
+Imagine, we have an arbitrary object obj, created by a constructor function – we don’t know which one, but we’d like to create a new object using it.
+
+Can we do it like that?
+
+let obj2 = new obj.constructor(); // yes we can
+
+//////////////////////////////////////////////////////////////
+
+
+When new Object() is called (or a literal object {...} is created), the [[Prototype]] of it is set to Object.prototype according to the rule that we discussed in the previous chapter:
+
+So then when obj.toString() is called the method is taken from Object.prototype.
+
+let obj = {};
+
+alert(obj.__proto__ === Object.prototype); // true
+// obj.toString === obj.__proto__.toString == Object.prototype.toString
+
+
+//////////////////////////////////////////////////////////////
+
+
+Please note that there is no additional [[Prototype]] in the chain above Object.prototype:
+
+ alert(Object.prototype.__proto__); // null
+ 
+ 
+ //////////////////////////////////////////////////////////////
+ 
+ By specification, all of the built-in prototypes have Object.prototype on the top. Sometimes people say that “everything inherits from objects”.
+ 
+ 
+//////////////////////////////////////////////////////////////
+ 
+ let arr = [1, 2, 3];
+
+// it inherits from Array.prototype?
+alert( arr.__proto__ === Array.prototype ); // true
+
+// then from Object.prototype?
+alert( arr.__proto__.__proto__ === Object.prototype ); // true
+
+// and null on the top.
+alert( arr.__proto__.__proto__.__proto__ ); // null
+
+
+//////////////////////////////////////////////////////////////
+
+function f() {}
+
+alert(f.__proto__ == Function.prototype); // true
+alert(f.__proto__.__proto__ == Object.prototype); // true, inherit from objects
+
+
+//////////////////////////////////////////////////////////////
+
+
+Values null and undefined have no object wrappers
+Special values null and undefined stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes too.
+
+
+
+//////////////////////////////////////////////////////////////
+
+String.prototype.show = function() {
+  alert(this);
+};
+
+"BOOM!".show(); // BOOM!
+
+During the process of development, we may have ideas for new built-in methods we’d like to have, and we may be tempted to add them to native prototypes. But that is generally a bad idea.
+
+
+
+//////////////////////////////////////////////////////////////
+
+Add to the prototype of all functions the method defer(ms), that runs the function after ms milliseconds.
+
+After you do it, such code should work:
+
+Function.prototype.defer = function(ms) {
+  setTimeout(this, ms);
+};
+
+function f() {
+  alert("Hello!");
+}
+
+f.defer(1000); // shows "Hello!" after 1 sec
+
+//////////////////////////////////////////////////////////////
+
+These should be used instead of __proto__.
+
+For instance:
+
+let animal = {
+  eats: true
+};
+
+// create a new object with animal as a prototype
+let rabbit = Object.create(animal);
+
+alert(rabbit.eats); // true
+alert(Object.getPrototypeOf(rabbit) === animal); // get the prototype of rabbit
+
+Object.setPrototypeOf(rabbit, {}); // change the prototype of rabbit to {}
+
+//////////////////////////////////////////////////////////////
+
+
+class User {
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHi() {
+    alert(this.name);
+  }
+
+}
+
+// Usage:
+let user = new User("John");
+user.sayHi();
+
+
+//////////////////////////////////////////////////////////////
+
+class User {
+
+  constructor(name) {
+    // invokes the setter
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short.");
+      return;
+    }
+    this._name = value;
+  }
+
+}
+
+let user = new User("John");
+alert(user.name); // John
+
+user = new User(""); // Name too short.
+
+//////////////////////////////////////////////////////////////
+
+
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+  run(speed) {
+    this.speed += speed;
+    alert(`${this.name} runs with speed ${this.speed}.`);
+  }
+  stop() {
+    this.speed = 0;
+    alert(`${this.name} stopped.`);
+  }
+}
+
+// Inherit from Animal by specifying "extends Animal"
+class Rabbit extends Animal {
+  hide() {
+    alert(`${this.name} hides!`);
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.hide(); // White Rabbit hides!
+
+
+//////////////////////////////////////////////////////////////
+
+
+usually we don’t want to totally replace a parent method, but rather to build on top of it, tweak or extend its functionality. We do something in our method, but call the parent method before/after it or in the process.
+
+Classes provide "super" keyword for that.
+
+super.method(...) to call a parent method.
+super(...) to call a parent constructor (inside our constructor only).
+For instance, let our rabbit autohide when stopped:
+
+
+
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  run(speed) {
+    this.speed += speed;
+    alert(`${this.name} runs with speed ${this.speed}.`);
+  }
+
+  stop() {
+    this.speed = 0;
+    alert(`${this.name} stopped.`);
+  }
+
+}
+
+class Rabbit extends Animal {
+  hide() {
+    alert(`${this.name} hides!`);
+  }
+
+  stop() {
+    super.stop(); // call parent stop
+    this.hide(); // and then hide
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.stop(); // White Rabbit stopped. White rabbit hides!
+
+
+
+Now Rabbit has the stop method that calls the parent super.stop() in the process.
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  // ...
+}
+
+class Rabbit extends Animal {
+
+  constructor(name, earLength) {
+    super(name);
+    this.earLength = earLength;
+  }
+
+  // ...
+}
+
+// now fine
+let rabbit = new Rabbit("White Rabbit", 10);
+alert(rabbit.name); // White Rabbit
+alert(rabbit.earLength); // 10
+
+
+//////////////////////////////////////////////////////////////
