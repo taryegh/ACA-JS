@@ -1,8 +1,3 @@
-## Are your feelings hurt?
-If you rushed through [David Shariff's JS Quiz](http://davidshariff.com/js-quiz/) or are just new to JS they might be. I know mine were. After I dried my eyes, I took the quiz again, this time very slowly trying to get at the meat behind each answer. Below is my attempt to explain each question's answer and offer some interesting permutations so that others can move beyond their hurt feelings and come out the other side better JS developers.
-
-I initially thought I'd turn this into a blog post but think it's probably better as a gist.
-
 ### Question \#1
 Don't over think it.
 
