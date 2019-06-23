@@ -21,8 +21,8 @@ function ask(question, yes, no) {
   else no();
 }
 
-/* ask(
+ask(
   'Do you agree?',
   () => alert('Agreed'),
   () => alert('Canceled')
-); */
+);
