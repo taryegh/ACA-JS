@@ -22,6 +22,10 @@ function isPrime(n) {
 showPrimes(32);
 
 
+
+
+
+
 // another solution - check if the num is prime
 function testPrime(n) {
   if (n === 1) {
@@ -41,3 +45,22 @@ function testPrime(n) {
 }
 
 console.log(testPrime(37));
+
+
+
+
+// another solution
+
+function prime(n) {
+  let str = '';
+
+  outer: for (let i = 2; i < n; i++) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) continue outer;
+    }
+    str += `${i}, `;
+  }
+  return str;
+}
+console.log(prime(20));
+
