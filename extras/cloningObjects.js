@@ -23,7 +23,7 @@ console.log(clone1);
 
 
 
-// Cloning with Object Assign
+// Cloning with Object.assign
 let clone2 = Object.assign({}, obj);
 clone2.home = 'Kaer Morhen';
 console.log(clone2);
