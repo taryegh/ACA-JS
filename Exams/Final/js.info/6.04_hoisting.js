@@ -115,7 +115,7 @@ function sayHi8() {
 
 // 9.
 function f1() {
-  x++;
+  x++; //error
 }
 f1();
 let x = 5;
@@ -127,3 +127,12 @@ console.log(x);
 
 
 
+// 10.
+function f1() {
+  x++; //will work
+}
+let x = 5;
+f1();
+
+
+console.log(x); 6
