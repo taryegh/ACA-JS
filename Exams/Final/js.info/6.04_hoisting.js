@@ -135,4 +135,4 @@ let x = 5;
 f1();
 
 
-console.log(x); 6
+console.log(x); //6
