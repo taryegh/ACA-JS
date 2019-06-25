@@ -1,15 +1,15 @@
 'use strict';
 
 
-// Write classes: Person, Student, Staff.
-// Person should have: firstName, lastName, gender, age. It should have appropriate getters and setters.
-// It should have a method: toString().
-// Student is inherited from Person. It should have program(array of strings), year, fee.
-// It should have appropriate getters and setters.
-// It should have method: passExam(program, grade). Student should contain the data about its programs and exams. passExam will update that data, so if student passed all the exams(grade is great or equal to 50), its year should be increased by one.
-// It should have a toString method.
-// Teacher is inherited from Person. It should have program(string), pay. It should have appropriate getters and setters.
-// It should have a toString method.
+// 3. Write classes: Person, Student, Staff.
+/* Person should have: firstName, lastName, gender, age. It should have appropriate getters and setters.
+It should have a method: toString().
+Student is inherited from Person. It should have program(array of strings), year, fee.
+It should have appropriate getters and setters.
+It should have method: passExam(program, grade). Student should contain the data about its programs and exams. passExam will update that data, so if student passed all the exams(grade is great or equal to 50), its year should be increased by one.
+It should have a toString method.
+Teacher is inherited from Person. It should have program(string), pay. It should have appropriate getters and setters.
+It should have a toString method. */
 
 
 // Class Person
@@ -63,6 +63,13 @@ const person01 = new Person('Geralt', 'of Riva', 'male', 35);
 console.log(person01);
 
 
+
+
+
+
+
+
+
 // Class Student
 class Student extends Person {
   constructor(firstName, lastName, gender, age, program, year, fee) {
@@ -108,7 +115,7 @@ class Student extends Person {
   }
 
   toString() {
-    return `Name: ${super.firstName + super.lastName},
+    return `Name: ${this.firstName + this.lastName},
     Gender: ${this.gender},
     Age: ${this.age},
     Program/s:  ${this.program},
@@ -120,12 +127,25 @@ class Student extends Person {
 
 const student01 = new Student('Geralt', 'of Riva', 'male', 35, ['Sword practice', 'Monster hunting', 'Magic'], 1200, '300 coins');
 console.log(student01);
+
 student01.passExam('Sword practice', 60);
+
 student01.passExam('Magic', 30);
 console.log(student01.year);
+
 student01.passExam('Monster hunting', 80);
+
 student01.passExam('Magic', 60);
 console.log(student01.year);
+
+
+
+
+
+
+
+
+
 
 
 // Class Teacher
@@ -154,7 +174,7 @@ class Teacher extends Person {
 
 
   toString() {
-    return `Name: ${super.firstName + super.lastName},
+    return `Name: ${this.firstName + this.lastName},
     Gender: ${this.gender},
     Age: ${this.age},
     Program/s:  ${this.program},
