@@ -36,3 +36,10 @@ let objSt = JSON.stringify(obj);
 let clone3 = JSON.parse(objSt);
 clone3.hair = 'white';
 console.log(clone3);
+
+
+
+
+// Cloning with Object.getOwnPropertyDescriptors
+let clone4 = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
+console.log(clone4);
