@@ -3,5 +3,5 @@ Wide package of JS applications ranging from simple programming problems to comp
 
 
 
-React Challenges: https://github.com/taryegh/react-practice
+React Challenges: https://github.com/taryegh/react-practice<br>
 TypeScript Challenges: https://github.com/taryegh/TypeScript-practice
