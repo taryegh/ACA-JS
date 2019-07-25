@@ -9,9 +9,9 @@ function checkPalindrom (str) {
 
 
 
+
+
 // Another way
-
-
 
 function isPalindrome(str) {
   let strLen = str.length;
