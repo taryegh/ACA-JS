@@ -1,6 +1,18 @@
 'use strict';
 
 
+// Nice way
+
+function checkPalindrom (str) {
+  return str == str.split('').reverse().join('');
+}
+
+
+
+// Another way
+
+
+
 function isPalindrome(str) {
   let strLen = str.length;
   str = str.toLowerCase();
