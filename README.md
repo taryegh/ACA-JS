@@ -1,5 +1,5 @@
 # ACA-JS
-Wide package of JS applications ranging from simple programming problems to comprehensive projects. The package has being developed while I am a JavaScript student at the Armenian Code Accademy.
+Wide package of JS applications ranging from simple programming problems to comprehensive projects. While the package has being developed as being a JavaScript student at the Armenian Code Accademy, it is a living folder, new challanges follow time to time.
 
 
 
