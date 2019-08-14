@@ -1,3 +1,6 @@
+'use strict';
+
+
 // 6.	Given an array of numbers. Find the maximum element in array.
 function findMax(arr) {
   return Math.max(...arr);
