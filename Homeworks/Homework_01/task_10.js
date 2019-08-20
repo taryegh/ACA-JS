@@ -3,12 +3,12 @@
 
 // 10. Insert a digit and a number. Check whether the digit contains in the number or not.
 
-function checkDigNum(dig, n) {
-  const nSt = n.toString();
-  const dSt = dig.toString();
+function checkDigNum() {
+  const n = prompt('insert a number');
+  const d = prompt('insert a digit');
 
-  for (let i = 0; i < nSt.length; i++) {
-    if (nSt[i] === dSt) {
+  for (let i = 0; i < n.length; i++) {
+    if (n[i] === d) {
       return 'Yes';
     }
   }
@@ -16,9 +16,9 @@ function checkDigNum(dig, n) {
   return 'No';
 }
 
-console.log(checkDigNum(5, 2463));
-console.log(checkDigNum(4, 6));
-console.log(checkDigNum(8, 45689));
+console.log(checkDigNum());
+console.log(checkDigNum());
+console.log(checkDigNum());
 
 
 // Another method
