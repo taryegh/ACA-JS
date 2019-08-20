@@ -4,8 +4,8 @@
 // 10. Insert a digit and a number. Check whether the digit contains in the number or not.
 
 function checkDigNum() {
-  const n = prompt('insert a number');
   const d = prompt('insert a digit');
+  const n = prompt('insert a number');
 
   for (let i = 0; i < n.length; i++) {
     if (n[i] === d) {
