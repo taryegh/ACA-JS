@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 // 9.	Given three numbers a, b (a ≤ b) and num. Create an array of evenly spaced numbers by the given num length over the specified interval (from a to b).
 

@@ -1,10 +1,10 @@
-'use strict';
-
+"use strict";
 
 // 10. Given an array of numbers. Find the index of the second maximum element.
 
 function findSecondMax(arr) {
-  let biggest = -Infinity; let nextBiggest = -Infinity;
+  let biggest = -Infinity;
+  let nextBiggest = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
     let cur = arr[i];
@@ -22,7 +22,6 @@ function findSecondMax(arr) {
 
 console.log(findSecondMax([23, -98, 0, -456, 12, 8]));
 console.log(findSecondMax([-60, 2, 43, -18, 5, -19, 36, 7, 56]));
-
 
 // another method
 function SecMax(arr) {
