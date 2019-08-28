@@ -11,7 +11,9 @@ function People() {
 
   return (
     <section>
-      <Person person={friends[0]} />
+      <Person person={friends[0]}>
+        <p>some info about me</p>
+      </Person>
       <Person person={friends[1]} />
       <Person person={friends[2]} />
     </section>
@@ -20,6 +22,7 @@ function People() {
 
 const Person = props => {
   const { name, job, age, company } = props.person;
+  const { children } = props;
 
   return (
     <div>
@@ -27,6 +30,7 @@ const Person = props => {
       <p>{job}</p>
       <p>{age}</p>
       <p>{company}</p>
+      {children}
       <hr />
     </div>
   );
