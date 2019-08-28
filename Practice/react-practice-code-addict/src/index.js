@@ -1,17 +1,52 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+// import "./index.css";
 
-function Book() {
+function People() {
+  const friends = [
+    { name: "John", job: "developer", age: 23, company: "apple" },
+    { name: "Bob", job: "economist", age: 27, company: "facebook" },
+    { name: "Suzy", job: "designer", age: 21, company: "twitter" }
+  ];
+
   return (
-    <section className="book">
-      <CoverImage />
-      <Title />
-      <Author />
+    <section>
+      <Person person={friends[0]} />
+      <Person person={friends[1]} />
+      <Person person={friends[2]} />
     </section>
   );
 }
 
+const Person = props => {
+  const { name, job, age, company } = props.person;
+
+  return (
+    <div>
+      <h1>{name}</h1>
+      <p>{job}</p>
+      <p>{age}</p>
+      <p>{company}</p>
+      <hr />
+    </div>
+  );
+};
+
+/*
+// PROJECT PERSON
+/* function Person() {
+  const btn = "search button";
+  const firstName = "John";
+  const lastName = "Smith";
+
+  return (
+    <section>
+      <button>{btn}</button>
+      <h2>{`${firstName} ${lastName}`}</h2>
+      <p>{10 + 20}</p>
+    </section>
+  );
+} */
 
 /* // PROJECT - BOOK
 function Book() {
@@ -59,6 +94,7 @@ const Message = () => <p>it's a message</p>; */
 /* function Greeting() {
   return React.createElement("div", {}, "hello world");
 } 
+
 */
 
-ReactDOM.render(<Book />, document.getElementById("root"));
+ReactDOM.render(<People />, document.getElementById("root"));
