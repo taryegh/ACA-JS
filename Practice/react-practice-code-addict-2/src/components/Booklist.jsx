@@ -1,13 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import Book from "./Book";
+import booksData from "./data";
 
-const Booklist = () => {
-  return (
-    <div>
-      <h2>hello from booklist</h2>
-      <Book />
-    </div>
-  );
-};
+export default class Booklist extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: booksData
+    };
+  }
 
-export default Booklist;
+  handleClick = () => {
+    console.log(`I am info from parent container`);
+  };
+
+  render() {
+    return (
+      <div>
+        <h2>Some books</h2>
+        {this.state.books.map(book => (
+          <Book key={book.id} info={book} handleClick={this.handleClick} />
+        ))}
+      </div>
+    );
+  }
+}
