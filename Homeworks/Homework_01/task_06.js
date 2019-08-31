@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 // 6. Given three numbers. Sort them by the ascending order
 
@@ -25,7 +24,6 @@ function sortNum(n1, n2, n3) {
 
 sortNum(45, 26, 78);
 sortNum(-23, -456, 0);
-
 
 // another method
 function sortN(...args) {

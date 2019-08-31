@@ -17,7 +17,7 @@ export default class Booklist extends Component {
   render() {
     return (
       <div>
-        <h2>Some books</h2>
+        <h2>Sapkowski books</h2>
         {this.state.books.map(book => (
           <Book key={book.id} info={book} handleClick={this.handleClick} />
         ))}

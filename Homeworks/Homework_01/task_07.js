@@ -1,11 +1,10 @@
-'use strict';
-
+"use strict";
 
 // 7. Find the sign of product of three numbers without multiplication operator. Display the specified sign.
 
 function checkSign(...nums) {
   if (nums.indexOf(0) > -1) {
-    return 'unsigned';
+    return "unsigned";
   }
 
   let count = 0;
@@ -16,7 +15,7 @@ function checkSign(...nums) {
     }
   }
 
-  return count % 2 ? '-' : '+';
+  return count % 2 ? "-" : "+";
 }
 
 console.log(checkSign(-14, 5, 0));
