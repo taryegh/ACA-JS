@@ -12,3 +12,11 @@ function calcAverage(...args) {
 
 console.log(calcAverage(45, -12, 0, 3, -15));
 console.log(calcAverage(7, 52, -23, 9, -81));
+
+// without arrays
+function calcAverageN(a1, a2, a3, a4, a5) {
+  return (a1 + a2 + a3 + a4 + a5) / 5;
+}
+
+console.log(calcAverageN(45, -12, 0, 3, -15));
+console.log(calcAverageN(7, 52, -23, 9, -81));

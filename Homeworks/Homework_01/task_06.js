@@ -2,30 +2,33 @@
 
 // 6. Given three numbers. Sort them by the ascending order
 
+// manual
 function sortNum(n1, n2, n3) {
   if (n1 < n2 && n1 < n3) {
-    if (n2 <= n3) {
-      console.log(`${n1}, ${n2}, ${n3}`);
+    if (n2 < n3) {
+      return `${n1}, ${n2}, ${n3}`;
     } else {
-      console.log(`${n1}, ${n3}, ${n2}`);
+      return `${n1}, ${n3}, ${n2}`;
     }
-  } else if (n2 < n3 && n2 < n3) {
-    if (n3 <= n1) {
-      console.log(`${n2}, ${n3}, ${n1}`);
+  } else if (n2 < n1 && n2 < n3) {
+    if (n1 < n3) {
+      return `${n2}, ${n1}, ${n3}`;
     } else {
-      console.log(`${n2}, ${n1}, ${n3}`);
+      return `${n2}, ${n3}, ${n1}`;
     }
-  } else if (n2 <= n3) {
-    console.log(`${n3}, ${n2}, ${n1}`);
-  } else {
-    console.log(`${n3}, ${n1}, ${n2}`);
+  } else if (n3 < n1 && n3 < n2) {
+    if (n1 < n2) {
+      return `${n3}, ${n1}, ${n2}`;
+    } else {
+      return `${n3}, ${n2}, ${n1}`;
+    }
   }
 }
 
-sortNum(45, 26, 78);
-sortNum(-23, -456, 0);
+console.log(sortNum(45, 26, 78));
+console.log(sortNum(-23, -456, 0));
 
-// another method
+// Array sort
 function sortN(...args) {
   return args.sort((a, b) => a - b);
 }
