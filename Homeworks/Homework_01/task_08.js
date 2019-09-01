@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 // 8. Input three numbers a, b, c respectively, where a is a non zero number and write a program to solve quadratic equations: ax^2 + bx + c = 0 . (Hint: use Math.pow or Math.sqrt).
 
@@ -18,10 +17,10 @@ function calcQ(a, b, c) {
       return `Solution is ${a1}`;
     }
 
-    return 'Enter valid constants';
+    return "Enter valid constants";
   }
 
-  return 'Solution does not exists';
+  return "Solution does not exists";
 }
 
 console.log(calcQ(1, 2, 1));
