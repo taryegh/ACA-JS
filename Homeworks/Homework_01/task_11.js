@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 // 11. Enter a number. Reverse its first and last digits. Print the new number.
 

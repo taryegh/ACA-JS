@@ -1,45 +1,31 @@
-'use strict';
-
+"use strict";
 
 // 13. (***) Enter a number. Find the difference between its biggest and smallest digits.
 
-function calcDif(n) {
-  const nSt = n.toString();
-  const nArr = nSt.split('');
+function calcDifference() {
+  const n = prompt("Enter number");
+  const nArr = n.split("");
   return Math.max(...nArr) - Math.min(...nArr);
 }
 
-console.log(calcDif(5));
-console.log(calcDif(152));
-console.log(calcDif(4593653));
+console.log(calcDifference());
 
-
-// Another method
-function calcDif2(n) {
-  let num = n;
-  const arr = [];
-
-  while (num > 0) {
-    const el = num % 10;
-    arr.unshift(el);
-    num = Math.floor(num / 10);
-  }
+function calcDif() {
+  const n = prompt("Enter number");
 
   let biggest = -Infinity;
   let smallest = +Infinity;
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > biggest) {
-      biggest = arr[i];
+  for (let i = 0; i < n.length; i++) {
+    if (n[i] > biggest) {
+      biggest = n[i];
     }
-    if (arr[i] < smallest) {
-      smallest = arr[i];
+    if (n[i] < smallest) {
+      smallest = n[i];
     }
   }
 
   return biggest - smallest;
 }
 
-console.log(calcDif2(5));
-console.log(calcDif2(152));
-console.log(calcDif2(4593653));
+console.log(calcDif());
