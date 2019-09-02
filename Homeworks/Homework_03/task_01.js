@@ -21,5 +21,3 @@ function printX(n) {
 }
 
 console.log(printX(7));
-
-
