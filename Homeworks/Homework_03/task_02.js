@@ -1,25 +1,27 @@
-'use strict';
-
+"use strict";
 
 // 2. Given an array of numbers. Print frequency of each unique number. (Frequency is the count of particular element divided by the count of all elements)
 
-function PrintF(arr) {
-  const sArr = arr.slice().sort((a, b) => a - b);
-  const fArr = [];
+function getFreq(arr) {
+  const finArr = [];
+  const sortedArr = [...arr].sort((a, b) => a - b);
   let count = 1;
 
-  for (let i = 0; i < sArr.length; i++) {
-    if (sArr[i] === sArr[i + 1]) {
-      count++;
+  for (let i = 0; i < sortedArr.length; i++) {
+    if (sortedArr[i] === sortedArr[i + 1]) {
+      count += 1;
     } else {
-      fArr.push(`${sArr[i]} => ${count / sArr.length}`);
+      const obj = {
+        number: sortedArr[i],
+        frequency: +(count / sortedArr.length).toFixed(2)
+      };
+      finArr.push(obj);
       count = 1;
     }
   }
-
-  return fArr;
+  return finArr;
 }
 
-console.log(PrintF([1, 1, 2, 2, 3]));
-console.log(PrintF([4, 4]));
-console.log(PrintF([1, 2, 3]));
+console.log(getFreq([1, 1, 2, 2, 3]));
+console.log(getFreq([4, 4]));
+console.log(getFreq([1, 2, 3]));
