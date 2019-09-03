@@ -6,12 +6,19 @@ export default class Book extends Component {
 
     this.state = {
       count: 0,
-      name: "tick"
+      showInfo: false
     };
   }
 
+  handleInfo = () => {
+    this.setState({
+      showInfo: !this.state.showInfo
+    });
+  };
+
   render() {
-    const { img, title, author } = this.props.info;
+    const { id, img, title, author } = this.props.info;
+    const { deleteItem } = this.props;
 
     return (
       <div className="book">
@@ -19,6 +26,14 @@ export default class Book extends Component {
         <div>
           <h4>TITLE: {title}</h4>
           <h6>BY: {author}</h6>
+          <button onClick={() => deleteItem(id)}>delete item</button>
+          <button onClick={this.handleInfo}>show info</button>
+          {this.state.showInfo ? (
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
+              error!
+            </p>
+          ) : null}
         </div>
       </div>
     );
