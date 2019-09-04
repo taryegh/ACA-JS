@@ -22,5 +22,5 @@ export const tourData = [
     name: "Jermuk is waiting to you",
     info:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,repellendus!"
-  }
+  },
 ];
