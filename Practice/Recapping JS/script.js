@@ -166,9 +166,8 @@ alert(`Name is ${name}`);
 // Question 1
 // Will alert be shown?
 if ("0") {
-  alert( 'Hello' ); // Yes
+  alert("Hello"); // Yes
 }
-
 
 // Question 2
 
@@ -179,7 +178,6 @@ if (name === "ECMAScript") {
 } else {
   console.log("wrong");
 }
-
 
 // Quesiton 3
 // Using if..else, write the code which gets a number via prompt and then shows in alert:
@@ -199,8 +197,6 @@ if (num > 0) {
   console.log(0);
 }
 
-
-
 // Question 4
 // Rewrite this if using the conditional operator '?':
 
@@ -214,8 +210,6 @@ if (num > 0) {
 
 let result;
 result = a + b < 4 ? "Below" : "Over";
-
-
 
 // Quesiton 5
 // Rewrite if..else using multiple ternary operators '?'.
@@ -244,3 +238,4 @@ message =
     : "";
 
 */
+
