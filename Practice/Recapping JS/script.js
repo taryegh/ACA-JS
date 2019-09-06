@@ -84,7 +84,163 @@ console.log(" \t \n" - 2); // -2
 
 */
 
+/*
+/////////////////////////////////////////
+// -------- 2.7 OPERATORS --------------
+/////////////////////////////////////////
 
-///////////////////////////////////////////////
-// -------- 2.6 TYPE CONVERSIONS --------------
-///////////////////////////////////////////////
+// Question 1
+// What are the final values of all variables a, b, c and d after the code below?
+
+let a = 1,
+  b = 1;
+
+let c = ++a;
+let d = b++;
+
+console.log(a); // 2
+console.log(b); // 2
+console.log(c); // 2
+console.log(d); // 1
+
+// Question 2
+// What are the values of a and x after the code below?
+
+let a = 2;
+let x = 1 + (a *= 2);
+
+console.log(a); // 4
+console.log(x); // 5
+
+*/
+
+/*
+//////////////////////////////////////////
+// -------- 2.8 COMPARISONS --------------
+//////////////////////////////////////////
+
+// When comparing values of different types, JavaScript converts the values to numbers.
+
+console.log("2" > 1); // true, string '2' becomes a number 2
+console.log("01" == 1); // true, string '01' becomes a number 1
+
+//For boolean values, true becomes 1 and false becomes 0.
+
+console.log(true == 1); // true
+console.log(false == 0); // true
+
+// Question 1
+// What will be the result for these expressions?
+
+console.log(5 > 4); // true
+console.log("apple" > "pineapple"); // false
+console.log("2" > "12"); // true
+console.log(undefined == null); // true
+console.log(undefined === null); // false
+console.log(null == "\n0\n"); // false
+console.log(null === +"\n0\n"); // false
+
+*/
+
+/*
+//////////////////////////////////////////
+// -------- 2.8 INTERACTION --------------
+//////////////////////////////////////////
+
+// Question 1
+// Create a web-page that asks for a name and outputs it.
+
+const name = prompt("Enter name");
+alert(`Name is ${name}`);
+
+*/
+
+/*
+///////////////////////////////////////////
+// -------- 2.8 CONDITIONALS --------------
+///////////////////////////////////////////
+
+// A number 0, an empty string "", null, undefined, and NaN all become false. Because of that they are called “falsy” values.
+// Other values become true, so they are called “truthy”.
+
+// Question 1
+// Will alert be shown?
+if ("0") {
+  alert( 'Hello' ); // Yes
+}
+
+
+// Question 2
+
+let name = prompt("What is name of JavaScript");
+
+if (name === "ECMAScript") {
+  console.log("right");
+} else {
+  console.log("wrong");
+}
+
+
+// Quesiton 3
+// Using if..else, write the code which gets a number via prompt and then shows in alert:
+
+// 1, if the value is greater than zero,
+// -1, if less than zero,
+// 0, if equals zero.
+// In this task we assume that the input is always a number.
+
+let num = +prompt("Enter num");
+
+if (num > 0) {
+  console.log(1);
+} else if (num < 0) {
+  console.log(-1);
+} else {
+  console.log(0);
+}
+
+
+
+// Question 4
+// Rewrite this if using the conditional operator '?':
+
+// let result;
+
+// if (a + b < 4) {
+//   result = 'Below';
+// } else {
+//   result = 'Over';
+// }
+
+let result;
+result = a + b < 4 ? "Below" : "Over";
+
+
+
+// Quesiton 5
+// Rewrite if..else using multiple ternary operators '?'.
+
+// let message;
+
+// if (login == 'Employee') {
+//   message = 'Hello';
+// } else if (login == 'Director') {
+//   message = 'Greetings';
+// } else if (login == '') {
+//   message = 'No login';
+// } else {
+//   message = '';
+// }
+
+let message;
+
+message =
+  login === "Employee"
+    ? "Hello"
+    : login === "Director"
+    ? "Greetings"
+    : login === ""
+    ? "No login"
+    : "";
+
+*/
