@@ -429,7 +429,7 @@ while (i < 3) {
   i++;
 }
 
-*/
+
 
 // Question 6
 // Write a loop which prompts for a number greater than 100. If the visitor enters another number – ask them to input again.
@@ -438,3 +438,102 @@ while (i < 3) {
 
 // Here we can assume that the visitor only inputs numbers. There’s no need to implement a special handling for a non-numeric input in this task.
 
+let num;
+
+do {
+  num = prompt("Enter a number greater than 100?", 0);
+} while (num <= 100 && num);
+
+
+
+// Question 7
+
+// Write the code which outputs prime numbers in the interval from 2 to n.
+
+// For n = 10 the result will be 2,3,5,7.
+
+// P.S. The code should work for any n, not be hard-tuned for any fixed value.
+
+let num = +prompt("Enter number to count primes");
+let o = "";
+outer: for (let i = 2; i <= num; i++) {
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0) continue outer;
+  }
+  o += `${i}, `;
+}
+console.log(o);
+
+*/
+
+/*
+/////////////////////////////////////////////////
+// -------------- 2.13 SWITCH -------------------
+/////////////////////////////////////////////////
+
+// Question 1
+// Write the code using if..else which would correspond to the following switch:
+
+// switch (browser) {
+//   case 'Edge':
+//     alert( "You've got the Edge!" );
+//     break;
+
+//   case 'Chrome':
+//   case 'Firefox':
+//   case 'Safari':
+//   case 'Opera':
+//     alert( 'Okay we support these browsers too' );
+//     break;
+
+//   default:
+//     alert( 'We hope that this page looks ok!' );
+// }
+
+if (browser === "Edge") {
+  console.log("You have got the Edge");
+} else if (
+  browser === "Chrome" ||
+  browser === "Firebox" ||
+  browser === "Safari" ||
+  browser === "Opera"
+) {
+  console.log("Okay we support these browsers too");
+} else {
+  console.log("We hope that this page looks ok!");
+}
+
+
+
+// Rewrite the code below using a single switch statement:
+
+let a = +prompt("a?", "");
+
+if (a == 0) {
+  alert(0);
+}
+if (a == 1) {
+  alert(1);
+}
+
+if (a == 2 || a == 3) {
+  alert("2,3");
+}
+
+
+switch (a) {
+  case 0:
+    console.log(0);
+    break;
+
+  case 1:
+    console.log(1);
+    break;
+
+  case 2:
+  case 3:
+    console.log("2, 3");
+    break;
+}
+
+*/
