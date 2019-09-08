@@ -608,7 +608,6 @@ function min(a, b) {
   return a < b ? a : b;
 }
 
-*/
 
 
 // Question 4
@@ -622,4 +621,110 @@ function min(a, b) {
 // Run the demo
 
 // P.S. In this task the function should support only natural values of n: integers up from 1.
+
+function pow(x, n) {
+  let num = 1;
+  for (let i = 0; i < n; i++) {
+    num *= x;
+  }
+  return num;
+}
+console.log(pow(2, 3));
+
+*/
+
+/*
+//////////////////////////////////////////////////////////////////////////
+// -------------- 2.15 FUNCTION EXPRESSIONS AND ARROWS -------------------
+//////////////////////////////////////////////////////////////////////////
+
+// Question 1
+// Replace Function Expressions with arrow functions in the code:
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+
+ask(
+  "Do you agree?",
+  function() {
+    alert("You agreed.");
+  },
+  function() {
+    alert("You canceled the execution.");
+  }
+);
+
+ask("Do you agree", () => alert("You agreed"), () => alert("You canceled"));
+
+*/
+
+/*
+//////////////////////////////////////////////////////////////////////////
+// -------------- 3.2 CODING STYLE -------------------
+//////////////////////////////////////////////////////////////////////////
+
+//Question 1
+// What’s wrong with the code style below?
+//fixed!
+function pow(x, n) {
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+let x = prompt("x?", "");
+let n = prompt("n?", "");
+
+if (n < 0) {
+  alert(`Power ${n} is not supported,
+    please enter an integer number greater than zero`);
+} else {
+  alert(pow(x, n));
+}
+
+
+
+/////////////////////////////////////////////////////
+// -------------- 4.1 OBJECTS ----------------------
+/////////////////////////////////////////////////////
+
+// We can also use multiword property names, but then they must be quoted:
+
+let user = {
+  name: "John",
+  age: 30,
+  "likes birds": true // multiword property name must be quoted
+};
+
+console.log(user.age);
+console.log(user['likes birds']);
+console.log(user['name']);
+
+let someKey = 'age';
+console.log(user[someKey]);
+
+
+
+// looping with for
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  alert( key );  // name, age, isAdmin
+  // values for the keys
+  alert( user[key] ); // John, 30, true
+}
+
+*/
+
 
