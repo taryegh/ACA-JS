@@ -725,6 +725,250 @@ for (let key in user) {
   alert( user[key] ); // John, 30, true
 }
 
-*/
 
+
+const obj1 = {
+  num: 1
+};
+
+const obj2 = {
+  num: 2
+};
+
+
+// To delete a property: delete obj.prop.
+// To check if a property with the given key exists: "key" in obj.
+// To iterate over an object: for (let key in obj) loop.
+
+
+
+
+// Question 1
+// Write the code, one line for each action:
+
+// Create an empty object user.
+// Add the property name with the value John.
+// Add the property surname with the value Smith.
+// Change the value of the name to Pete.
+// Remove the property name from the object.
+
+const user = {};
+user.name = 'John';
+user['surname'] = 'Smith';
+user.name = 'Pete';
+delete user.name;
+console.log(user);
+
+
+
+
+// Question 2
+// Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+
+function isEmpty(obj) {
+  for (let key in obj) {
+    return false;
+  }
+  return true;
+}
+
+const someObj = {};
+console.log(isEmpty(someObj));
+
+someObj['age'] = 27;
+console.log(isEmpty(someObj));
+
+
+// Question 3
+// Is it possible to change an object declared with const? What do you think?
+
+
+const user = {
+  name: "John"
+};
+
+// does it work?
+user.name = "Pete";
+
+// Yes, since we are changing the reference not the variable itself
+
+
+
+// Question 4
+// We have an object storing salaries of our team:
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+// Write the code to sum all salaries and store in the variable sum. Should be 390 in the example above.
+
+// If salaries is empty, then the result must be 0.
+
+function sum(obj) {
+  let sum = 0;
+  for (let key in obj) {
+    sum+=obj[key];
+  }
+  obj.sum = sum;
+}
+
+sum(salaries);
+
+console.log(salaries);
+
+
+
+// Question 5
+// Create a function multiplyNumeric(obj) that multiplies all numeric properties of obj by 2.
+
+// For instance:
+
+// before the call
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+// multiplyNumeric(menu);
+
+// after the call
+// menu = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu"
+// };
+// Please note that multiplyNumeric does not need to return anything. It should modify the object in-place.
+
+// P.S. Use typeof to check for a number here.
+
+
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === 'number') {
+      obj[key] *= 2;
+    }
+  }
+}
+
+multiplyNumeric(menu);
+console.log(menu);
+
+
+
+/////////////////////////////////////////////////////
+// -------------- 4.3 SYMBOL ----------------------
+/////////////////////////////////////////////////////
+
+let id = Symbol("id1");
+
+let user = {
+  name: "Taron",
+  [id]: 1
+};
+
+console.log(user);
+
+
+
+
+let user = {
+  name: "Taron",
+  sayHi() {
+    console.log(name);
+  }
+};
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+// -------------- 4.4 OBJECT METHODS, THIS ----------------------
+/////////////////////////////////////////////////////////////////
+
+// Question 1
+// What is the result of this code?
+
+let user = {
+  name: "John",
+  go: function() {
+    alert(this.name);
+  }
+}(user.go)(); // error, because of semicolon missing
+// P.S. There’s a pitfall :)
+
+
+
+// Question 2
+// In the code below we intend to call user.go() method 4 times in a row.
+
+// But calls (1) and (2) works differently from (3) and (4). Why?
+
+let obj, method;
+
+obj = {
+  go: function() {
+    alert(this);
+  }
+};
+
+obj.go(); // (1) [object Object]
+
+obj.go(); // (2) [object Object]
+
+(method = obj.go)(); // (3) undefined // this attachment lost
+
+(obj.go || obj.stop)(); // (4) undefined // this attachment lost
+
+
+
+// Question 3
+// Here the function makeUser returns an object.
+// What is the result of accessing its ref? Why?
+
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+}
+
+let user = makeUser();
+
+alert(user.ref); // What's the result? // would not work because theire is no object calling a method
+
+
+
+// Question 4
+// Create an object calculator with three methods:
+
+// read() prompts for two values and saves them as object properties.
+// sum() returns the sum of saved values.
+// mul() multiplies saved values and returns the result.
+// let calculator = {
+//   // ... your code ...
+// };
+
+// calculator.read();
+// alert( calculator.sum() );
+// alert( calculator.mul() );
+
+const calc = {
+  read() {
+    this.val1 = +prompt("Enter val1");
+    this.val2 = +prompt("Enter val2");
+  },
+  sum() {
+    return this.val1 + this.val2;
+  },
+  mul() {
+    this.prod = this.val1 * this.val2;
+    return this.prod;
+  }
+};
+
+*/
 
