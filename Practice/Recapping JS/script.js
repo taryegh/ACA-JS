@@ -882,9 +882,9 @@ let user = {
 };
 
 
+*/
 
-
-
+/*
 /////////////////////////////////////////////////////////////////
 // -------------- 4.4 OBJECT METHODS, THIS ----------------------
 /////////////////////////////////////////////////////////////////
@@ -970,5 +970,136 @@ const calc = {
   }
 };
 
+
+
+// Question 5
+// There’s a ladder object that allows to go up and down:
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function() { // shows the current step
+//     alert( this.step );
+//   }
+// };
+// Now, if we need to make several calls in sequence, can do it like this:
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// Modify the code of up, down and showStep to make the calls chainable, like this:
+
+// ladder.up().up().down().showStep(); // 1
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep() {
+    alert( this.step );
+    return this;
+  }
+}
+
 */
 
+/*
+//////////////////////////////////////////////////////////////////////
+// -------------- 4.6 CONSTRUCTOR, OPERATOR NEW ----------------------
+//////////////////////////////////////////////////////////////////////
+
+// Question 1
+// Is it possible to create functions A and B such as new A()==new B()?
+
+// function A() { ... }
+// function B() { ... }
+
+// let a = new A;
+// let b = new B;
+
+// alert( a == b ); // true // yes
+
+const obj = {};
+
+function A() {
+  return obj;
+}
+
+function B() {
+  return obj;
+}
+
+console.log(new A() === new B());
+
+
+
+// Question 2
+// Create a constructor function Calculator that creates objects with 3 methods:
+
+// read() asks for two values using prompt and remembers them in object properties.
+// sum() returns the sum of these properties.
+// mul() returns the multiplication product of these properties.
+// For instance:
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert( "Sum=" + calculator.sum() );
+// alert( "Mul=" + calculator.mul() );
+
+function Calculator() {
+  this.read = function() {
+    this.val1 = +prompt("Enter value 1");
+    this.val2 = +prompt("Enter value 2");
+  };
+  this.sum = function() {
+    return this.val1 + this.val2;
+  };
+  this.mul = function() {
+    return this.val1 * this.val2;
+  };
+}
+
+let calc = new Calculator();
+
+
+
+// Question 3
+// Create a constructor function Accumulator(startingValue).
+
+// Object that it creates should:
+
+// Store the “current value” in the property value. The starting value is set to the argument of the constructor startingValue.
+// The read() method should use prompt to read a new number and add it to value.
+// In other words, the value property is the sum of all user-entered values with the initial value startingValue.
+
+// Here’s the demo of the code:
+
+// let accumulator = new Accumulator(1); // initial value 1
+
+// accumulator.read(); // adds the user-entered value
+// accumulator.read(); // adds the user-entered value
+
+// alert(accumulator.value); // shows the sum of these values
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function() {
+    this.value += +prompt('Enter number');
+  }
+}
+
+*/
