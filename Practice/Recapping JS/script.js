@@ -1,4 +1,5 @@
 "use strict";
+
 /*
 ////////////////////////////////////////
 // -------- 2.4 VARIABLES ------------
@@ -1103,3 +1104,52 @@ function Accumulator(startingValue) {
 }
 
 */
+
+///////////////////////////////////////////////////////////////////
+// -------------- 4.6 METHODS OF PRIMITIVES ----------------------
+///////////////////////////////////////////////////////////////////
+
+// Consider the following code:
+
+// let str = "Hello";
+
+// str.test = 5;
+
+// alert(str.test);
+// How do you think, will it work? What will be shown? - Error
+
+/////////////////////////////////////////////////////
+// -------------- 5.2 NUMBERS ----------------------
+/////////////////////////////////////////////////////
+
+/*
+// Question 1
+// Create a script that prompts the visitor to enter two numbers and then shows their sum.
+// P.S. There is a gotcha with types.
+
+function sum() {
+  const a = +prompt("Enter a");
+  const b = +prompt("Enter b");
+  alert(a + b);
+}
+sum();
+
+
+
+// Question 2
+// According to the documentation Math.round and toFixed both round to the nearest number: 0..4 lead down while 5..9 lead up.
+
+// For instance:
+
+//  alert( 1.35.toFixed(1) ); // 1.4
+// In the similar example below, why is 6.35 rounded to 6.3, not 6.4?
+
+//  alert( 6.35.toFixed(1) ); // 6.3
+// How to round 6.35 the right way?
+
+console.log(Math.round(6.35 * 10) / 10);
+
+
+*/
+
+
