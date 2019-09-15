@@ -1150,6 +1150,61 @@ sum();
 console.log(Math.round(6.35 * 10) / 10);
 
 
+
+
+
+// Question 3
+// Create a function readNumber which prompts for a number until the visitor enters a valid numeric value.
+
+// The resulting value must be returned as a number.
+
+// The visitor can also stop the process by entering an empty line or pressing “CANCEL”. In that case, the function should return null.
+
+function readNumber() {
+  let n = prompt('Enter number');
+  if (isFinite(n)) {
+    return n;
+  }
+  readNumber();
+}
+console.log(readNumber());
+
+
+
+// Question 4
+// This loop is infinite. It never ends. Why?
+
+let i = 0;
+while (i != 10) {
+  i += 0.2;
+}
+
+// never becomes 10 actually because of precision losses, it should be written while i < 10
+
+
+
+// Question 5
+// The built-in function Math.random() creates a random value from 0 to 1 (not including 1).
+
+// Write the function random(min, max) to generate a random floating-point number from min to max (not including max).
+
+// Examples of its work:
+
+function random(min, max) {
+  return min + Math.random() * (max - min);
+}
+console.log(random(3, 10));
+
 */
 
+// Question 6
+// Create a function randomInteger(min, max) that generates a random integer number from min to max including both min and max as possible values.
 
+// Any number from the interval min..max must appear with the same probability.
+
+function randomInteger(min, max) {
+  let rand = min - 0.5 + Math.random() * (max - min + 1);
+  return Math.round(rand);
+}
+
+console.log(randomInteger(1, 3));
