@@ -1195,7 +1195,7 @@ function random(min, max) {
 }
 console.log(random(3, 10));
 
-*/
+
 
 // Question 6
 // Create a function randomInteger(min, max) that generates a random integer number from min to max including both min and max as possible values.
@@ -1208,3 +1208,154 @@ function randomInteger(min, max) {
 }
 
 console.log(randomInteger(1, 3));
+
+
+
+/////////////////////////////////////////////////////
+// -------------- 5.3 STRINGS ----------------------
+/////////////////////////////////////////////////////
+
+// Question 1
+// Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+
+function ucFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+console.log(ucFirst("john"));
+
+
+
+// Question 2
+// Write a function checkSpam(str) that returns true if str contains ‘viagra’ or ‘XXX’, otherwise false.
+// The function must be case-insensitive:
+
+function checkSpam(str) {
+  const s = str.toLowerCase();
+  if (s === "viagra" || s === "xxx") return true;
+  return false;
+}
+
+console.log(checkSpam("viaGra"));
+console.log(checkSpam("hey"));
+
+
+
+// Question 3
+// Create a function truncate(str, maxlength) that checks the length of the str and, if it exceeds maxlength – replaces the end of str with the ellipsis character "…", to make its length equal to maxlength.
+
+// The result of the function should be the truncated (if needed) string.
+
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength) + '...'
+  }
+  return str;
+}
+
+console.log(truncate('Undadasee', 5));
+
+
+
+// Question 4
+// We have a cost in the form "$120". That is: the dollar sign goes first, and then the number.
+
+// Create a function extractCurrencyValue(str) that would extract the numeric value from such string and return it.
+
+function extractCurrencyValue(str) {
+  return +str.slice(1);
+}
+
+console.log(extractCurrencyValue('$120'));
+
+
+
+/////////////////////////////////////////////////////
+// -------------- 5.4 ARRAYS -----------------------
+/////////////////////////////////////////////////////
+
+// Question 1
+// What is this code going to show?
+
+let fruits = ["Apples", "Pear", "Orange"];
+
+// push a new value into the "copy"
+let shoppingCart = fruits;
+shoppingCart.push("Banana");
+
+// // what's in fruits?
+console.log( fruits.length ); // 4
+
+
+
+// Question 2
+// Let’s try 5 array operations.
+
+// Create an array styles with items “Jazz” and “Blues”.
+// Append “Rock-n-Roll” to the end.
+// Replace the value in the middle by “Classics”. Your code for finding the middle value should work for any arrays with odd length.
+// Strip off the first value of the array and show it.
+// Prepend Rap and Reggae to the array.
+// The array in the process:
+
+// Jazz, Blues
+// Jazz, Blues, Rock-n-Roll
+// Jazz, Classics, Rock-n-Roll
+// Classics, Rock-n-Roll
+// Rap, Reggae, Classics, Rock-n-Roll
+
+let styles = ["Jazz", "Blues"];
+styles.push("Rock-n-Roll");
+let mid = Math.floor(styles.length / 2);
+styles[mid] = "Classics";
+console.log(styles.shift());
+styles.unshift("Rap", "Reggae");
+console.log(styles);
+
+
+
+// Question 3
+// What is the result? Why?
+
+let arr = ["a", "b"];
+
+arr.push(function() {
+  console.log(this);
+});
+
+arr[2](); // ['a', 'b', function];
+
+
+
+
+// Question 4
+// Write the function sumInput() that:
+
+// Asks the user for values using prompt and stores the values in the array.
+// Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+// Calculates and returns the sum of array items.
+// P.S. A zero 0 is a valid number, please don’t stop the input on zero.
+
+function sumInput() {
+  let arr = [];
+
+  while (true) {
+    let value = prompt("Enter num?");
+
+    // should we cancel?
+    if (value === "" || value === null || isNaN(value)) break;
+
+    arr.push(+value);
+  }
+
+  let sum = 0;
+  for (let el of arr) {
+    sum += el;
+  }
+  return sum;
+}
+
+console.log(sumInput());
+
+*/
+
