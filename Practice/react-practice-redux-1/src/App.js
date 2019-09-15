@@ -7,13 +7,13 @@ function App() {
   const isLogged = useSelector(state => state.isLogged);
 
   // DISPATCH -> EXECUTION
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <div className="App">
       <h1>Counter {counter}</h1>
-      <button onClick={()=> dispatch(increment(4))}>+</button>
-      <button onClick={()=> dispatch(decrement())}>+</button>
+      <button onClick={() => dispatch(increment(4))}>+</button>
+      <button onClick={() => dispatch(decrement())}>+</button>
 
       {isLogged ? <h3>Valuable info I shouldn't see</h3> : ""}
     </div>
