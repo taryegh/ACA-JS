@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Lesson from "./03_state/Lesson";
+import Lesson from "./07_conditional_rendering/Lesson";
 
 ReactDOM.render(<Lesson />, document.getElementById("root"));
 
