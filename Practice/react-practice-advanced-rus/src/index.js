@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Lesson from "./08_list_keys/Lesson";
+import Lesson from "./10_forms/Lesson";
 
 ReactDOM.render(<Lesson />, document.getElementById("root"));
 
