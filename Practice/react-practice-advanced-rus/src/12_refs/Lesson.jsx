@@ -25,21 +25,23 @@ export default class Lesson extends Component {
     }
   };
 
-  handleInputChange = ({ target: { value } }) => {
-    this.setState({
-      inputText: value
-    });
-  };
+  inputRef = React.createRef();
+  textareaRef = React.createRef();
+  selectRef = React.createRef();
 
-  handleTextChange = ({ target: { value } }) => {
-    this.setState({
-      textAreaText: value
-    });
-  };
+  componentWillMount() {
+    console.log("cwm", this.inputRef);
+  }
 
-  handleSelectChange = ({ target: { value } }) => {
+  componentDidMount() {
+    console.log("cdm", this.inputRef);
+  }
+
+  handleChange = () => {
     this.setState({
-      selectText: value
+      inputText: this.inputRef.current.value,
+      textAreaText: this.textareaRef.current.value,
+      selectText: this.selectRef.current.value
     });
   };
 
@@ -70,10 +72,11 @@ export default class Lesson extends Component {
           <label>
             Name:
             <input
+              ref={this.inputRef}
               type="text"
               name="name"
               value={inputText}
-              onChange={this.handleInputChange}
+              onChange={this.handleChange}
             />
           </label>
 
@@ -81,9 +84,10 @@ export default class Lesson extends Component {
           <br />
           <label htmlFor="text">Text:</label>
           <textarea
+            ref={this.textareaRef}
             id="text"
             value={textAreaText}
-            onChange={this.handleTextChange}
+            onChange={this.handleChange}
           />
 
           {/* Button */}
@@ -91,7 +95,11 @@ export default class Lesson extends Component {
           <button onClick={this.handleShow}>Show</button>
 
           {/* Select */}
-          <select value={selectText} onChange={this.handleSelectChange}>
+          <select
+            ref={this.selectRef}
+            value={selectText}
+            onChange={this.handleChange}
+          >
             {POSITIONS.map(({ id, value, title }) => (
               <option key={id} value={value}>
                 {title}
